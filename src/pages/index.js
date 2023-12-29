@@ -1,10 +1,7 @@
 import * as React from "react";
 
 import './index.css';
-import Header from "../components/Header";
-import FallaciesList from "../components/FallaciesList";
-import FallacyDetails from "../components/FallacyDetails";
-import ModalCopy from "../components/ModalCopy";
+import { Header, FallaciesList, FallacyDetails, ModalCopy } from "../components/Header";
 
 const IndexPage = () => {
   const [searchValue, updateSearchValue] = React.useState('');
