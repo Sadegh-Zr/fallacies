@@ -1,0 +1,43 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Aviny';
+    font-weight: 300;
+    font-style: normal;
+    src: url(/fonts/aviny.woff2) format("woff2");
+}
+
+:root {
+    --color-primary: #fbc531;
+    --max-content-width: 500px;
+}
+
+html {
+    font-size: 62.5%;
+    direction: rtl;
+    height: 100%;
+}
+
+body {
+    background-color: var(--color-primary);
+    font-family: 'Aviny';
+    height: 100%;
+    overflow: hidden;
+}
+
+#___gatsby, #___gatsby > * {
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}

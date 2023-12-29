@@ -1,0 +1,219 @@
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+
+.notFound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   height: 100%;
+    width: 100%;
+}
+
+.notFound p{
+    font-size: 1.8rem;
+}
+
+.fallaciesList {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 2rem 1.5rem;
+    flex-grow: 1;
+    overflow: scroll;
+    align-content: flex-start;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    width: 100%;
+    max-width: var(--max-content-width);
+}
+
+.fallaciesList::-webkit-scrollbar {
+    display: none;
+}
+
+/* Fallacies List scroll down fading area */
+.scrollFaderBottom {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2rem;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(transparent, var(--color-primary));
+}
+
+.fallaciesList button {
+    border: none;
+    background-color: #fff;
+    border-radius: 15rem;
+    font-size: 1.7rem;
+    font-family: inherit;
+    padding: 1.5rem;
+}
+
+.fallaciesList button:nth-child(3n) {
+    flex-grow: 5;
+}
+
+.fallaciesList button:nth-child(2n) {
+    flex-grow: 2;
+}
+
+.fallacyDetailsWrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+.fallacyDetails {
+    position: absolute;
+    width: calc(min(100%, var(--max-content-width)) - 10rem);
+    padding-bottom: 2rem;
+    background: #fff;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0%);
+    z-index: 3;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 5px 5px 2rem rgba(0, 0, 0, 0.1), -5px 5px 2rem rgba(0, 0, 0, 0.1), 0 -5px 2rem rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-out transform;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.fallacyDetailsWrapper.-hidden .fallacyDetails {
+    transform: translate(-50%, 100%);
+}
+
+.contentFader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-out opacity;
+    opacity: 1;
+}
+
+.fallacyDetailsWrapper.-hidden .contentFader {
+    opacity: 0;
+}
+
+.fallacyDetails__buttonClose {
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+    align-self: flex-start;
+}
+
+.fallacyDetails__title {
+    font-size: 2.3rem;
+    align-self: center;
+    margin-top: -1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.fallacyDetails__description {
+    font-size: 1.7rem;
+    padding: 0 1rem;
+    color: #616161;
+    margin-bottom: 1rem;
+}
+
+.fallacyDetails__example {
+    font-size: 1.7rem;
+    padding: 0 1rem;
+    color: var(--color-primary);
+}
+
+.fallacyDetails__exampleValue {
+    color: #616161;
+}
+
+.fallacyDetails__buttonCopyMessage {
+    border: none;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-family: inherit;
+    width: calc(100% - 4rem);
+    margin-top: 2rem;
+    align-self: center;
+    font-size: 1.8rem;
+    padding: 1rem 1rem;
+    border-radius: 3rem;
+    transition: 0.2s;
+}
+
+.fallacyDetails__buttonCopyMessage:active {
+    background-color: #eab31b;
+}
+
+.copyModal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 5rem;
+    color: #fff;
+    background-color: #2ecc71;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0.3s ease-out opacity;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.copyModal::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    height: 14rem;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.copyModal > * {
+    visibility: inherit;
+}
+
+.copyModal p:last-child {
+    font-size: 3rem;
+}
+
+.copyModal.-closed {
+    opacity: 0;
+}
+
+.copyModal__textContainer {
+    transform: scale(1.4);
+    transition: 0.3s ease-out;
+}
+
+.copyModal__textContainer.-scaleIn {
+    transform: scale(1);
+}
+
+.copyModal__textContainer.-scaleOut {
+    transform: scale(0.7);
+}

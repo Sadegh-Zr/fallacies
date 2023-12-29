@@ -1,176 +1,109 @@
-import * as React from "react"
+import * as React from "react";
+import fallaciesJSON from '../../content/fallacies.json';
+import { IoCloseOutline } from "react-icons/io5";
+import { RiMenuSearchLine } from "react-icons/ri";
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+import './index.css';
+import Header from "../components/Header";
 
 const IndexPage = () => {
+  const [searchValue, updateSearchValue] = React.useState('');
+  const [selectedFallacy, setSelectedFallacy] = React.useState(null);
+  const fallacyDetailsWrapper = React.useRef(null);
+  const fallacyDetails = React.useRef(null);
+  const copyModal = React.useRef(null);
+  const copyModalText = React.useRef(null);
+  const renderFallacies = () => {
+    const data = fallaciesJSON.data.filter(({ title }) => title.includes(searchValue));
+    if (!data.length) {
+      return (
+        <div className="notFound">
+          <RiMenuSearchLine size="5rem" />
+          <p>مغالطه‌ای با این نام یافت نشد...</p>
+        </div>
+      )
+    }
+    return data.map(fallacy => (
+      <button onClick={() => { setSelectedFallacy(fallacy); }} key={fallacy.id}>{`مغالطه ${fallacy.title}`}</button>
+    ))
+  };
+  React.useEffect(() => {
+    if (!selectedFallacy) return;
+    fallacyDetailsWrapper.current.style.visibility = 'visible';
+    fallacyDetailsWrapper.current.classList.remove('-hidden')
+  }, [selectedFallacy]);
+
+  const showCopyModal = () => {
+    copyModal.current.style.visibility = 'visible';
+    copyModal.current.classList.remove('-closed');
+    copyModalText.current.classList.add('-scaleIn');
+    navigator.clipboard.writeText(`با احترام، به نظر می‌رسد که کلام شما دچار مغالطه ${selectedFallacy.title} شده است.`)
+    setTimeout(() => {
+      copyModalText.current.classList.add('-scaleOut');
+      setTimeout(() => {
+        copyModal.current.classList.add('-closed');
+      }, 150);
+    }, 1000);
+  };
+
+  const hideFallacyDetails = () => {
+    fallacyDetailsWrapper.current.classList.add('-hidden');
+  }
+  React.useEffect(() => {
+    const handleFallacyDetailsTransitionEnd = () => {
+      const isClosed = fallacyDetailsWrapper.current.classList.contains('-hidden');
+      if (!isClosed) return;
+      fallacyDetailsWrapper.current.style.visibility = 'hidden';
+      setSelectedFallacy(null);
+    }
+    const handleCopyModalTransitionEnd = () => {
+      if (copyModal.current.classList.contains('-closed')) {
+        copyModal.current.style.visibility = 'hidden';
+        copyModalText.current.classList.remove('-scaleOut');
+        copyModalText.current.classList.remove('-scaleIn');
+      }
+    }
+
+    copyModal.current.addEventListener('transitionend', handleCopyModalTransitionEnd);
+    fallacyDetails.current.addEventListener('transitionend', handleFallacyDetailsTransitionEnd);
+    return () => {
+      fallacyDetails.current.removeEventListener('transitionend', handleFallacyDetailsTransitionEnd);
+      copyModal.current.removeEventListener('transitionend', handleCopyModalTransitionEnd);
+    }
+  }, [])
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
+    <main>
+      <Header searchValue={searchValue} updateSearchValue={updateSearchValue} />
+      <div className="fallaciesList">
+        {renderFallacies()}
+      </div>
+      <div className="scrollFaderBottom"/>
+      <div ref={fallacyDetailsWrapper} style={{ visibility: 'hidden' }} className="fallacyDetailsWrapper -hidden">
+        <div onClick={hideFallacyDetails} className="contentFader" />
+        <div ref={fallacyDetails} className="fallacyDetails">
+          <button onClick={hideFallacyDetails} className="fallacyDetails__buttonClose">
+            <IoCloseOutline size="3rem" />
+          </button>
+          <h2 className="fallacyDetails__title">{`مغالطه ${selectedFallacy?.title}`}</h2>
+          <p className="fallacyDetails__description"><span style={{ color: 'var(--color-primary)'}}>توضیح:‌ </span>{selectedFallacy?.description}</p>
+          {selectedFallacy?.examples?.map((example, index) => (
+            <div key={example.id} className="fallacyDetails__example">
+              <span>{`مثال ${index + 1}: `}<span className="fallacyDetails__exampleValue">{example.value}</span></span>
+            </div>
+          ))}
+          <button onClick={showCopyModal} className="fallacyDetails__buttonCopyMessage">کسی از این مغالطه استفاده می‌کند؟!</button>
+        </div>
+      </div>
+      <div style={{ visibility: 'hidden'}} ref={copyModal} className="copyModal -closed">
+        <div ref={copyModalText} className="copyModal__textContainer">
+          <p>متنی کپی شد !</p>
+          <p>آن را برای شخص مغالط ارسال کنید :)</p>
+        </div>
+      </div>
     </main>
   )
 }
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <title>مغالطات</title>
