@@ -16,7 +16,7 @@ const IndexPage = () => {
       <Header searchValue={searchValue} updateSearchValue={updateSearchValue} />
       <FallaciesList searchValue={searchValue} setSelectedFallacy={setSelectedFallacy} />
       <div className="scrollFaderBottom"/>
-      <FallacyDetails selectedFallacy={selectedFallacy} setSelectedFallacy={setSelectedFallacy} showCopyModal={() => { setModalCopyVisibility(true); }} />
+      <FallacyDetails selectedFallacy={selectedFallacy} setSelectedFallacy={setSelectedFallacy} onButtonCopyClick={() => { setModalCopyVisibility(true); }} />
       <ModalCopy isOpen={isModalCopyVisible} selectedFallacy={selectedFallacy} hideModal={() => { setModalCopyVisibility(false); }} />
     </main>
   )

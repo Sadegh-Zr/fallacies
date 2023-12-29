@@ -2,7 +2,7 @@ import * as React from 'react';
 import { IoCloseOutline } from "react-icons/io5";
 import './FallacyDetails.css';
 
-const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, showCopyModal }) => {
+const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick }) => {
     const fallacyDetailsWrapper = React.useRef(null);
     const fallacyDetails = React.useRef(null);
 
@@ -42,7 +42,7 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, showCopyModal }) 
                 <span>{`مثال ${index + 1}: `}<span className="FallacyDetails__exampleValue">{example.value}</span></span>
                 </div>
             ))}
-            <button onClick={showCopyModal} className="FallacyDetails__buttonCopyMessage">کسی از این مغالطه استفاده می‌کند؟!</button>
+            <button onClick={onButtonCopyClick} className="FallacyDetails__buttonCopyMessage">کسی از این مغالطه استفاده می‌کند؟!</button>
             </div>
         </div>
     );
