@@ -1,10 +1,9 @@
 import * as React from "react";
-import fallaciesJSON from '../../content/fallacies.json';
 import { IoCloseOutline } from "react-icons/io5";
-import { RiMenuSearchLine } from "react-icons/ri";
 
 import './index.css';
 import Header from "../components/Header";
+import FallaciesList from "../components/FallaciesList";
 
 const IndexPage = () => {
   const [searchValue, updateSearchValue] = React.useState('');
@@ -13,20 +12,6 @@ const IndexPage = () => {
   const fallacyDetails = React.useRef(null);
   const copyModal = React.useRef(null);
   const copyModalText = React.useRef(null);
-  const renderFallacies = () => {
-    const data = fallaciesJSON.data.filter(({ title }) => title.includes(searchValue));
-    if (!data.length) {
-      return (
-        <div className="notFound">
-          <RiMenuSearchLine size="5rem" />
-          <p>مغالطه‌ای با این نام یافت نشد...</p>
-        </div>
-      )
-    }
-    return data.map(fallacy => (
-      <button onClick={() => { setSelectedFallacy(fallacy); }} key={fallacy.id}>{`مغالطه ${fallacy.title}`}</button>
-    ))
-  };
   React.useEffect(() => {
     if (!selectedFallacy) return;
     fallacyDetailsWrapper.current.style.visibility = 'visible';
@@ -74,9 +59,7 @@ const IndexPage = () => {
   return (
     <main>
       <Header searchValue={searchValue} updateSearchValue={updateSearchValue} />
-      <div className="fallaciesList">
-        {renderFallacies()}
-      </div>
+      <FallaciesList searchValue={searchValue} setSelectedFallacy={setSelectedFallacy} />
       <div className="scrollFaderBottom"/>
       <div ref={fallacyDetailsWrapper} style={{ visibility: 'hidden' }} className="fallacyDetailsWrapper -hidden">
         <div onClick={hideFallacyDetails} className="contentFader" />

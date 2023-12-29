@@ -6,66 +6,6 @@ main {
     align-items: center;
 }
 
-.notFound {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   height: 100%;
-    width: 100%;
-}
-
-.notFound p{
-    font-size: 1.8rem;
-}
-
-.fallaciesList {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    padding: 2rem;
-    gap: 2rem 1.5rem;
-    flex-grow: 1;
-    overflow: scroll;
-    align-content: flex-start;
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
-    width: 100%;
-    max-width: var(--max-content-width);
-}
-
-.fallaciesList::-webkit-scrollbar {
-    display: none;
-}
-
-/* Fallacies List scroll down fading area */
-.scrollFaderBottom {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 2rem;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(transparent, var(--color-primary));
-}
-
-.fallaciesList button {
-    border: none;
-    background-color: #fff;
-    border-radius: 15rem;
-    font-size: 1.7rem;
-    font-family: inherit;
-    padding: 1.5rem;
-}
-
-.fallaciesList button:nth-child(3n) {
-    flex-grow: 5;
-}
-
-.fallaciesList button:nth-child(2n) {
-    flex-grow: 2;
-}
-
 .fallacyDetailsWrapper {
     position: absolute;
     left: 0;
