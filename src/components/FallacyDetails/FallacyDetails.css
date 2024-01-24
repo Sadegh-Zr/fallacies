@@ -64,7 +64,36 @@
     font-size: 1.7rem;
     padding: 0 1rem;
     color: #616161;
-    margin-bottom: 1rem;
+    position: relative;
+}
+
+/* list fader on top for examples list */
+.FallacyDetails__description::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2rem;
+    top: 100%;
+    left: 0;
+    background: linear-gradient(#fff 10%, transparent);
+}
+
+.FallacyDetails__examplesContainer{
+    max-height: 40vh;
+    overflow: scroll;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    
+}
+
+@media (pointer: fine) {
+    .FallacyDetails__examplesContainer {
+        -ms-overflow-style: none; 
+        scrollbar-width: none; 
+    }
+    .FallacyDetails__examplesContainer::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .FallacyDetails__example {
@@ -83,12 +112,23 @@
     color: #fff;
     font-family: inherit;
     width: calc(100% - 4rem);
-    margin-top: 2rem;
     align-self: center;
     font-size: 1.8rem;
     padding: 1rem 1rem;
     border-radius: 3rem;
     transition: 0.2s;
+    position: relative;
+}
+/* List fader bottom for examples list*/
+.FallacyDetails__buttonCopyMessage::after {
+    position: absolute;
+    content: "";
+    width: calc(100% + 4rem);
+    height: 2rem;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(transparent, #fff 95%);
 }
 
 .FallacyDetails__buttonCopyMessage:active {

@@ -32,17 +32,19 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
         <div ref={fallacyDetailsWrapper} style={{ visibility: 'hidden' }} className="FallacyDetails__wrapper -hidden">
             <div onClick={hideFallacyDetails} className="FallacyDetails__contentFader" />
             <div ref={fallacyDetails} className="FallacyDetails">
-            <button onClick={hideFallacyDetails} className="FallacyDetails__buttonClose">
-                <IoCloseOutline size="3rem" />
-            </button>
-            <h2 className="FallacyDetails__title">{`مغالطه ${selectedFallacy?.title}`}</h2>
-            <p className="FallacyDetails__description"><span style={{ color: 'var(--color-primary)'}}>توضیح:‌ </span>{selectedFallacy?.description}</p>
-            {selectedFallacy?.examples?.map((example, index) => (
-                <div key={example.id} className="FallacyDetails__example">
-                <span>{`مثال ${index + 1}: `}<span className="FallacyDetails__exampleValue">{example.value}</span></span>
-                </div>
-            ))}
-            <button onClick={onButtonCopyClick} className="FallacyDetails__buttonCopyMessage">کسی از این مغالطه استفاده می‌کند؟!</button>
+              <button onClick={hideFallacyDetails} className="FallacyDetails__buttonClose">
+                  <IoCloseOutline size="3rem" />
+              </button>
+              <h2 className="FallacyDetails__title">{`مغالطه ${selectedFallacy?.title}`}</h2>
+              <p className="FallacyDetails__description"><span style={{ color: 'var(--color-primary)'}}>توضیح:‌ </span>{selectedFallacy?.description}</p>
+              <div className='FallacyDetails__examplesContainer'>
+                {selectedFallacy?.examples?.map((example, index) => (
+                    <div key={example.id} className="FallacyDetails__example">
+                    <span>{`مثال ${index + 1}: `}<span className="FallacyDetails__exampleValue">{example.value}</span></span>
+                    </div>
+                ))}
+              </div>
+              <button onClick={onButtonCopyClick} className="FallacyDetails__buttonCopyMessage">کسی از این مغالطه استفاده می‌کند؟!</button>
             </div>
         </div>
     );
