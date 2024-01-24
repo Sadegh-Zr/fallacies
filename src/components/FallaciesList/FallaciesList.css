@@ -17,17 +17,21 @@
     align-items: flex-start;
     padding: 2rem;
     gap: 2rem 1.5rem;
-    flex-grow: 1;
     overflow: scroll;
     align-content: flex-start;
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
     width: 100%;
     max-width: var(--max-content-width);
 }
 
-.FallaciesList::-webkit-scrollbar {
-    display: none;
+
+@media (pointer: fine) {
+    .FallaciesList {
+        -ms-overflow-style: none; 
+        scrollbar-width: none; 
+    }
+    .FallaciesList::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .FallaciesList button {
@@ -37,6 +41,7 @@
     font-size: 1.7rem;
     font-family: inherit;
     padding: 1.5rem;
+    flex-grow: 1;
 }
 
 .FallaciesList button:nth-child(3n) {
