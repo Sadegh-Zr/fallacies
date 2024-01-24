@@ -2,6 +2,8 @@ import * as React from "react";
 
 import './index.css';
 import { Header, FallaciesList, FallacyDetails, ModalCopy } from "../components";
+import { HiOutlineNewspaper } from "react-icons/hi2";
+
 
 const IndexPage = () => {
   const [searchValue, updateSearchValue] = React.useState('');
@@ -15,6 +17,9 @@ const IndexPage = () => {
       <div className="scrollFaderBottom"/>
       <FallacyDetails selectedFallacy={selectedFallacy} setSelectedFallacy={setSelectedFallacy} onButtonCopyClick={() => { setModalCopyVisibility(true); }} />
       <ModalCopy isOpen={isModalCopyVisible} selectedFallacy={selectedFallacy} hideModal={() => { setModalCopyVisibility(false); }} />
+      <button className="buttonTest">
+        <HiOutlineNewspaper size="2.5rem" color="#fff" />
+      </button>
     </main>
   )
 }

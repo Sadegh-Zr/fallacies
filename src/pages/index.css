@@ -16,3 +16,20 @@ main {
     left: 0;
     background: linear-gradient(transparent, var(--color-primary));
 }
+
+.buttonTest {
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--color-secondary);
+    box-shadow: 5px 5px 15px rgba(39, 174, 96, 0.4), 0 -5px 15px rgba(39, 174, 96, 0.4);
+    border-radius: 50%;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    position: fixed;
+    border: none;
+    transition: 0.2s background-color;
+}
+
+.buttonTest:active {
+    background-color:#39bc70 ;
+}

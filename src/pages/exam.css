@@ -1,0 +1,59 @@
+.Exam {
+    /* padding: 2rem 0; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.Exam__titlesContainer {
+    text-align: center;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.Exam__title {
+    font-size: 2.3rem;
+}
+
+.Exam__questionList {
+    padding: 0 2rem;
+    height: 100%;
+}
+
+.Exam__questionItem {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Exam__questionText {
+    font-size: 2;
+    text-align: justify;
+    background-color: rgb(255, 255, 255);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid rgba(44, 44, 44, 0.31);
+}
+
+.Exam__questionAnswerWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.Exam__questionAnswerList {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.Exam__questionAnswer {
+    flex-basis: 100%;
+    border-radius: 10rem;
+    background-color: #fff;
+    font-size: 1.9rem;
+    padding: 1.5rem;
+    border: none;
+}

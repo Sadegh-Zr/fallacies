@@ -65,6 +65,7 @@
     padding: 0 1rem;
     color: #616161;
     position: relative;
+    text-align: justify;
 }
 
 /* list fader on top for examples list */
@@ -100,6 +101,7 @@
     font-size: 1.7rem;
     padding: 0 1rem;
     color: var(--color-primary);
+    text-align: justify;
 }
 
 .FallacyDetails__exampleValue {
