@@ -13,6 +13,8 @@
 
 :root {
     --color-primary: #fbc531;
+    --color-title: #fff;
+    --color-text-primary: #000;
     --max-content-width: 500px;
 }
 
@@ -27,6 +29,7 @@ body {
     font-family: 'Aviny';
     height: 100%;
     overflow: hidden;
+    color: var(--color-text-primary);
 }
 
 #___gatsby, #___gatsby > * {
