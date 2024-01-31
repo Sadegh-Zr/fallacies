@@ -15,7 +15,9 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "dompurify": "^3.0.8",
     "gatsby": "^5.13.0",
+    "html-react-parser": "^5.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0"
