@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { IoCloseOutline } from "react-icons/io5";
 import './FallacyDetails.css';
+import { toFarsiNumber, parseHTML } from '../../utils';
 
 const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick }) => {
     const fallacyDetailsWrapper = React.useRef(null);
@@ -21,13 +22,13 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
           }
         fallacyDetails.current.addEventListener('transitionend', handleFallacyDetailsTransitionEnd);
         return () => {
-            fallacyDetails.current.removeEventListener('transitionend', handleFallacyDetailsTransitionEnd);
+            fallacyDetails.current?.removeEventListener('transitionend', handleFallacyDetailsTransitionEnd);
         }
     }, []);
     
-      const hideFallacyDetails = () => {
-        fallacyDetailsWrapper.current.classList.add('-hidden');
-      }
+    const hideFallacyDetails = () => {
+      fallacyDetailsWrapper.current.classList.add('-hidden');
+    }
     return (
         <div ref={fallacyDetailsWrapper} style={{ visibility: 'hidden' }} className="FallacyDetails__wrapper -hidden">
             <div onClick={hideFallacyDetails} className="FallacyDetails__contentFader" />
@@ -40,7 +41,7 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
               <div className='FallacyDetails__examplesContainer'>
                 {selectedFallacy?.examples?.map((example, index) => (
                     <div key={example.id} className="FallacyDetails__example">
-                    <span>{`مثال ${index + 1}: `}<span className="FallacyDetails__exampleValue">{example.value}</span></span>
+                    <span>{`مثال ${toFarsiNumber(index + 1)}: `}<span className="FallacyDetails__exampleValue">{parseHTML(example.value)}</span></span>
                     </div>
                 ))}
               </div>

@@ -13,10 +13,12 @@
 
 :root {
     --color-primary: #fbc531;
+    --color-primary-active: #eab31b;
     --color-secondary: #27ae60;
     --color-title: #fff;
     --color-text-primary: #000;
     --max-content-width: 500px;
+    --color-error: #e74c3c;
 }
 
 html {
@@ -44,5 +46,11 @@ h1, h2, h3, h4, h5, h6 {
 button {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-    font-family: inherit;
+    font-family: inherit !important;
+}
+
+.rodal-dialog {
+    width: 400px !important;
+    max-width: calc(100vw - 6rem) !important;
+    padding: 0 !important;
 }

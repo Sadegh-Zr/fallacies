@@ -10,7 +10,7 @@ const Header = ({ searchValue, updateSearchValue }) => {
                 <HiOutlineMenuAlt3 color='#fff' size="2.8rem" />
             </button>
             <h1>مغالطات</h1>
-            <h2>مرجعی برای معرفی مغالطات و مثال‌های  کاربردی آن‌ها</h2>
+            <h2>مرجعی برای تسلط به مغالطات به همراه مثال‌های کاربردی و آزمون</h2>
             {/* <div className="Header__subContainer">
                 <span>منابع</span>
                 <span>چرا؟</span>

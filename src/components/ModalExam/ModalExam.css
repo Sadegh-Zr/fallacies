@@ -1,0 +1,41 @@
+.ModalExam {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.ModalExam__buttonClose {
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+    align-self: flex-start;
+}
+
+.ModalExam__title {
+    color: var(--color-primary);
+    font-size: 2.3rem;
+    margin-top: -3rem;
+}
+
+.ModalExam__description {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.ModalExam__submit {
+    font-size: 2rem;
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    width: calc(100% - 8rem);
+    max-width: 25rem;
+    background: var(--color-primary);
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    transition: 0.2s ease-out;
+}
+
+.ModalExam__submit:active {
+    background-color: var(--color-primary-active);;
+}

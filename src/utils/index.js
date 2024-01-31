@@ -38,4 +38,6 @@ const getAllSiblings = element => {
 
 const parseHTML = html => parse(DOMPurify.sanitize(html));
 
-export { shuffle, getRandomItemsFromArray, toFarsiNumber, getAllSiblings, parseHTML };
+const isBrowser = typeof window !== "undefined";
+
+export { shuffle, getRandomItemsFromArray, toFarsiNumber, getAllSiblings, parseHTML, isBrowser };

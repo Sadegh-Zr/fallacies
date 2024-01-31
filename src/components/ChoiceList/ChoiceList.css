@@ -1,0 +1,26 @@
+.ChoiceList {
+    display: flex;
+    align-items: center;
+}
+
+.ChoiceList__choice {
+    --size: 5rem;
+    width: var(--size);
+    height: var(--size);
+    background: #fff;
+    border: 1.5px solid #d4d4d4;
+    font-size: 2.3rem;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.4);
+    transition: 0.2s ease-out border-color color;
+}
+
+.ChoiceList__choice:not(:last-child) {
+    margin-left: 1rem;
+}
+
+.ChoiceList__choice.-selected {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    border-width: 2px;
+}

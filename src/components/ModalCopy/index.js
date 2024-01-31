@@ -31,7 +31,7 @@ const ModalCopy = ({ isOpen, selectedFallacy, hideModal }) => {
     
         container.current.addEventListener('transitionend', handleTransitionEnd);
         return () => {
-          container.current.removeEventListener('transitionend', handleTransitionEnd);
+          container.current?.removeEventListener('transitionend', handleTransitionEnd);
         }
       }, []);
     return (

@@ -58,6 +58,7 @@
     margin-top: -1.5rem;
     color: var(--color-primary);
     margin-bottom: 0.5rem;
+    padding: 0 1rem;
 }
 
 .FallacyDetails__description {
@@ -134,5 +135,5 @@
 }
 
 .FallacyDetails__buttonCopyMessage:active {
-    background-color: #eab31b;
+    background-color: var(--color-primary-active);
 }

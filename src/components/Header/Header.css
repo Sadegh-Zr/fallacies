@@ -25,6 +25,18 @@
     align-self: flex-start;
     border: none;
     padding: 1rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+    transition: 0.2s ease-out background-color;
+}
+
+.Header__menuButton > * {
+    margin-bottom: -1rem;
+}
+
+.Header__menuButton:active {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .Header h1 {
