@@ -7,5 +7,13 @@ module.exports = {
     title: "مغالطات",
     description: "مرجعی برای تسلط به مغالطات به همراه مثال‌های کاربردی و آزمون‌گیری",
   },
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `#3498db`,
+        showSpinner: false,
+      },
+    },
+  ],
 }

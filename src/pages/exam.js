@@ -5,6 +5,8 @@ import { getAllSiblings, getRandomItemsFromArray, isBrowser, parseHTML, shuffle,
 import { QUESTION_DELAY } from '../constants';
 import ModalResults from '../components/ModalResults';
 
+
+
 const QUESTIONS = questionsJSON.list.map(question => {
     // first item in each question choices data is the correct answer. So we shuffle the choices array
     // the correct choice is an object but the others are strings

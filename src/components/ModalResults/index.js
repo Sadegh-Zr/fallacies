@@ -4,6 +4,7 @@ import { EXAM_RESULTS_RANGE } from '../../constants';
 import { isInRange, toFarsiNumber } from '../../utils';
 import questionsJSON from '../../../content/questions.json';
 import { navigate } from 'gatsby';
+import { GoHome } from "react-icons/go";
 
 const ModalResults = ({ questions }) => {
     const { length: correctAnswersCount } = questions.filter(question => !question.hasError);
@@ -11,7 +12,7 @@ const ModalResults = ({ questions }) => {
     const wrongAnswers = questions.filter(question => question.hasError);
     const { color } = EXAM_RESULTS_RANGE.find(range => isInRange(correctPercentage, range));
     React.useEffect(() => {
-        // document.querySelector('meta[name="theme-color"]').setAttribute('content',  color);
+        document.querySelector('meta[name="theme-color"]').setAttribute('content',  color);
     }, []);
 
     const goHome = () => {
@@ -40,7 +41,7 @@ const ModalResults = ({ questions }) => {
             <h1>{renderText()}</h1>
             <h2>درصد شما: {toFarsiNumber((correctPercentage === 100) || (correctPercentage === 0) ? correctPercentage : correctPercentage.toFixed(1))}</h2>
             <p>{renderDescription()}</p>
-            <button onClick={goHome}>صفحه اصلی</button>
+            <button onClick={goHome}><GoHome size="2.3rem" /> صفحه اصلی</button>
         </div>
     );
 };

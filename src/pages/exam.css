@@ -5,9 +5,7 @@
     overflow: hidden;
 }
 
-.Exam > * {
-    max-width: var(--max-content-width);
-}
+
 .Exam__titlesContainer {
     text-align: center;
     width: 100%;
@@ -23,6 +21,7 @@
     height: 100%;
     position: relative;
     width: 100%;
+    max-width: var(--max-content-width);
 }
 
 .Exam__questionItem {
