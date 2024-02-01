@@ -40,4 +40,6 @@ const parseHTML = html => parse(DOMPurify.sanitize(html));
 
 const isBrowser = typeof window !== "undefined";
 
-export { shuffle, getRandomItemsFromArray, toFarsiNumber, getAllSiblings, parseHTML, isBrowser };
+const isInRange = (number, range) => ((number >= range.start) && (number <= range.end));
+
+export { shuffle, getRandomItemsFromArray, toFarsiNumber, getAllSiblings, parseHTML, isBrowser, isInRange };

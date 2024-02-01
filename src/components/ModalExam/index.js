@@ -15,7 +15,7 @@ const ModalExam = ({ isVisible, toggle }) => {
     };
 
     return (
-        <Rodal visible={isVisible} leaveAnimation='door' onClose={toggle} showCloseButton={false} height={250}>
+        <Rodal visible={isVisible} leaveAnimation='door' onClose={toggle} showCloseButton={false} height={270}>
             <div className='ModalExam'>
                 <button onClick={toggle} className="ModalExam__buttonClose">
                     <IoCloseOutline size="3rem" />
