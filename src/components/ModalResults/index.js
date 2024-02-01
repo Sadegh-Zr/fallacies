@@ -32,8 +32,8 @@ const ModalResults = ({ questions }) => {
 
     const renderDescription = () => {
         if (correctPercentage === 100) return `البته شما تنها به ${toFarsiNumber(questions.length)} سؤال از مجموع ${toFarsiNumber(questionsJSON.list.length)} سؤال در بانک سؤالات ما پاسخ دادید. ممکن است در تشخیص مغالطات دیگر دچار خطا شوید :) لذا پیشنهاد می‌شود هر از گاهی مجددا آزمون بدهید.`;
-        else if (correctPercentage >= EXAM_RESULTS_RANGE[EXAM_RESULTS_RANGE.length - 1].start) return `پیشنهاد می‌کنیم برای تسلط کامل و رفع اشکالات، به صفحه اصلی مراجعه کنید. ${wrongAnswers.length === 1 ? 'مغالطه‌ای' : 'مغالطاتی'} که در تشخیص ${wrongAnswers.length === 1 ? 'آن' : 'آن‌ها'} خطا داشتید، با رنگ متمایز، مشخص ${wrongAnswers.length === 1 ? 'شده است' : 'شده‌اند'}.`
-        else return 'پیشنهاد می‌کنیم برای آگاهی بیش‌تر و رفع اشکالات، به صفحه اصلی مراجعه کنید. مغالطاتی که در تشخیص آن‌ها خطا داشتید، با رنگ متمایز، مشخص شده‌اند.'
+        else if (correctPercentage >= EXAM_RESULTS_RANGE[EXAM_RESULTS_RANGE.length - 1].start) return `پیشنهاد می‌کنیم برای تسلط کامل و رفع اشکالات، به صفحه اصلی مراجعه کنید. ${wrongAnswers.length === 1 ? 'مغالطه‌ای' : 'مغالطاتی'} که در تشخیص ${wrongAnswers.length === 1 ? 'آن' : 'آن‌ها'} خطا داشتید، با دایره قرمز، مشخص ${wrongAnswers.length === 1 ? 'شده است' : 'شده‌اند'}.`
+        else return 'پیشنهاد می‌کنیم برای آگاهی بیش‌تر و رفع اشکالات، به صفحه اصلی مراجعه کنید. مغالطاتی که در تشخیص آن‌ها خطا داشتید، با دایره قرمز، مشخص شده‌اند.'
     };
 
     return (

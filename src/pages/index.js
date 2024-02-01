@@ -3,6 +3,7 @@ import * as React from "react";
 import './index.css';
 import { Header, FallaciesList, FallacyDetails, ModalCopy, ModalExam } from "../components";
 import { HiOutlineNewspaper } from "react-icons/hi2";
+import { isBrowser } from "../utils";
 
 
 const IndexPage = () => {

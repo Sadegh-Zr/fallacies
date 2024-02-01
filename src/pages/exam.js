@@ -24,7 +24,8 @@ const Exam = () => {
     
     React.useEffect(() => {
         if (isResultsModalVisible) {
-            console.log(EXAM_QUESTIONS.current)
+            const remindingFallacies = EXAM_QUESTIONS.current.filter(_q => _q.hasError).map(_q => _q.fallacyId);
+            localStorage.setItem('remindingFallacies', JSON.stringify(remindingFallacies));
         }
     }, [isResultsModalVisible])
 
