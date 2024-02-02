@@ -2,7 +2,6 @@ import * as React from 'react';
 import './ImageViewer.css';
 import { IoCloseOutline } from "react-icons/io5";
 
-import test from '../../images/graph1.png'
 import { updateBrowserColor } from '../../utils';
 
 const ImageViewer = ({ src, onClose }) => {
