@@ -137,3 +137,24 @@
 .FallacyDetails__buttonCopyMessage:active {
     background-color: var(--color-primary-active);
 }
+
+.FallacyDetails__graphContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.FallacyDetails__graphContainer img {
+    max-height: 10rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    max-width: 40%;
+}
+
+
+.FallacyDetails__graphContainer img:not(:last-child) {
+    margin-left: 3rem;
+}

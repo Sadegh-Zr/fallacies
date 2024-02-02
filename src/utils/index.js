@@ -42,4 +42,8 @@ const isBrowser = typeof window !== "undefined";
 
 const isInRange = (number, range) => ((number >= range.start) && (number <= range.end));
 
-export { shuffle, getRandomItemsFromArray, toFarsiNumber, getAllSiblings, parseHTML, isBrowser, isInRange };
+const updateBrowserColor = color => {
+  document.querySelector('meta[name="theme-color"]').setAttribute('content',  color);
+}
+
+export { shuffle, getRandomItemsFromArray, toFarsiNumber, getAllSiblings, parseHTML, isBrowser, isInRange, updateBrowserColor };
