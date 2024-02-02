@@ -75,6 +75,7 @@
     padding: 1.5rem;
     border-radius: 10px;
     border: 2px solid rgba(44, 44, 44, 0.31);
+    white-space: pre-line;
 }
 
 .Exam__questionAnswerList {
