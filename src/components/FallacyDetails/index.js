@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IoCloseOutline } from "react-icons/io5";
 import './FallacyDetails.css';
-import { toFarsiNumber, parseHTML, updateBrowserColor } from '../../utils';
+import { toFarsiNumber, parseHTML } from '../../utils';
 import graph1 from '../../images/graph1.png';
 import graph2 from '../../images/graph2.png';
 import graph3 from '../../images/graph3.jpg';
