@@ -4,8 +4,20 @@ import questionsJSON from '../../content/questions.json';
 import { getAllSiblings, getRandomItemsFromArray, isBrowser, parseHTML, shuffle, toFarsiNumber } from '../utils';
 import { QUESTION_DELAY } from '../constants';
 import ModalResults from '../components/ModalResults';
+import graph5 from '../images/graph5.png'
+import graph6 from '../images/graph6.png'
+import ImageViewer from '../components/ImageViewer';
 
-
+const GRAPH_QUESTION_IMAGES = [
+    {
+      id: 36,
+      image: graph5,
+    },
+    {
+      id: 37,
+      image: graph6,
+    }
+  ];
 
 const QUESTIONS = questionsJSON.list.map(question => {
     // first item in each question choices data is the correct answer. So we shuffle the choices array
@@ -20,14 +32,14 @@ const Exam = () => {
     const searchParams = new URLSearchParams(isBrowser ? window.location.search : '');
     const EXAM_QUESTIONS = React.useRef(getRandomItemsFromArray(QUESTIONS, searchParams.get('n')));
     const [isResultsModalVisible, setResultsModalVisibility] = React.useState(false);
-
+    const [activeImageSrc, updateActiveImageSrc] = React.useState(null);
     
     React.useEffect(() => {
         if (isResultsModalVisible) {
             const remindingFallacies = EXAM_QUESTIONS.current.filter(_q => _q.hasError).map(_q => _q.fallacyId);
             localStorage.setItem('remindingFallacies', JSON.stringify(remindingFallacies));
         }
-    }, [isResultsModalVisible])
+    }, [isResultsModalVisible]);
 
     const renderQuestions = () => EXAM_QUESTIONS.current.map((item, index) => {
         const handleClick = (e, choice) => {
@@ -55,11 +67,22 @@ const Exam = () => {
             )
         });
 
+        /* Only for 2 specific questions */
+        const renderQuestionImage = () => {
+            const questionWithImage = GRAPH_QUESTION_IMAGES.find(({ id }) => item.id === id);
+            if (questionWithImage) return (
+                <img src={questionWithImage.image} onClick={() => { updateActiveImageSrc(questionWithImage.image); }} />
+            );
+          };
+
         const activeClassApply = index === iterator ? '-active' : '';
         const slideClassApply = ((iterator - 1) === index) ? '-slideAway' : '';
         return (
             <div key={item.id} className={`Exam__questionItem ${activeClassApply} ${slideClassApply}`}>
-                <h1 className='Exam__questionText'>{parseHTML(item.question)}</h1>
+                <div className='Exam__questionText'>
+                    <h1>{parseHTML(item.question)}</h1>
+                    {renderQuestionImage()}
+                </div>
                 <div className='Exam__questionAnswerList'>
                     {renderChoices()}
                 </div>
@@ -78,6 +101,7 @@ const Exam = () => {
             {isResultsModalVisible && (
                 <ModalResults questions={EXAM_QUESTIONS.current} />
             )}
+            <ImageViewer src={activeImageSrc} onClose={() => { updateActiveImageSrc(null); }}/>
         </main>
     )
 };

@@ -69,15 +69,27 @@
 }
 
 .Exam__questionText {
-    font-size: 1.7rem;
-    text-align: justify;
     background-color: rgb(255, 255, 255);
     padding: 1.5rem;
     border-radius: 10px;
     border: 2px solid rgba(44, 44, 44, 0.31);
-    white-space: pre-line;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.Exam__questionText h1 {
+    white-space: pre-line;
+    text-align: justify;
+    font-size: 1.7rem;
+}
+
+.Exam__questionText img {
+    width: 6rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
 .Exam__questionAnswerList {
     display: flex;
     flex-wrap: wrap;
