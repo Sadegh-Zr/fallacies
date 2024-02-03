@@ -39,16 +39,36 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.Header h1 {
+.Header > h1 {
     font-size: 5rem;
     color: var(--color-title);
-    margin-top: -3rem;
 }
 
 .Header h2 {
     font-size: 2rem;
     padding: 0 2rem;
+    text-align: justify;
 }
+
+.Header > button {
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: transparent;
+    transition: 0.2s ease-out;
+    border: none;
+    border-radius: 50%;
+}
+
+.Header > button:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 
 .Header input {
     border: none;

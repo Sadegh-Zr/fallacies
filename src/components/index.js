@@ -6,3 +6,4 @@ export { default as ModalExam } from './ModalExam';
 export { default as ChoiceList } from './ChoiceList';
 export { default as ModalResults } from './ModalResults';
 export { default as ImageViewer } from './ImageViewer';
+export { default as ModalInfo } from './ModalInfo';

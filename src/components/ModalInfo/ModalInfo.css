@@ -1,0 +1,75 @@
+.ModalInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ModalInfo h1 {
+    font-size: 2.3rem;
+    text-align: center;
+    margin-top: -3rem;
+    color: var(--color-primary);
+}
+
+.ModalInfo__closeIconButton {
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+    align-self: flex-start;
+}
+
+.ModalInfo p {
+    font-size: 1.7rem;
+    color: #616161;
+    text-align: justify;
+    padding: 0 2rem;
+    margin-top: 0.5rem;
+}
+
+.ModalInfo__close {
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    margin-top: 1rem;
+    padding: 0.5rem 3rem;
+    padding-bottom: 1.5rem;
+}
+
+.ModalInfo__close:after {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 70%;
+    width: 30%;
+    height: 2px;
+    background-color: #000;
+    transform: translateX(-50%);
+    transition: 0.2s ease-out;
+}
+
+.ModalInfo__close:active:after {
+    transform: translateX(-50%) scaleX(1.8);
+}
+
+.ModalInfo a {
+    color: #3498db;
+    text-decoration: none;
+    position: relative;
+}
+
+.ModalInfo a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 1px;
+    background-color: #3498db;
+}
+
+.s {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
