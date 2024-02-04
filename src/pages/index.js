@@ -34,5 +34,6 @@ export const Head = () => (
     <html lang="fa" dir='rtl' />
     <title>مغالطات</title>
     <meta name="theme-color" content="#fbc531" />
+    <meta name="description" content="مرجعی برای تسلط به مغالطات به همراه مثال‌های کاربردی و آزمون‌گیری" />
   </>
 )
