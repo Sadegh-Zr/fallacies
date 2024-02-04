@@ -3,7 +3,6 @@ import * as React from "react";
 import './index.css';
 import { Header, FallaciesList, FallacyDetails, ModalCopy, ModalExam } from "../components";
 import { HiOutlineNewspaper } from "react-icons/hi2";
-import { isBrowser } from "../utils";
 
 
 const IndexPage = () => {
@@ -20,7 +19,7 @@ const IndexPage = () => {
       <div className="scrollFaderBottom"/>
       <FallacyDetails selectedFallacy={selectedFallacy} setSelectedFallacy={setSelectedFallacy} onButtonCopyClick={() => { setModalCopyVisibility(true); }} />
       <ModalCopy isOpen={isModalCopyVisible} selectedFallacy={selectedFallacy} hideModal={() => { setModalCopyVisibility(false); }} />
-      <button onClick={toggleModalExam} className="buttonTest">
+      <button aria-label="آزمون" onClick={toggleModalExam} className="buttonTest">
         <HiOutlineNewspaper size="2.5rem" color="#fff" />
       </button>
       <ModalExam isVisible={isModalExamVisible} toggle={toggleModalExam} />

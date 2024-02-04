@@ -9,7 +9,7 @@ const Header = ({ searchValue, updateSearchValue }) => {
     const toggleModalInfo = () => { setModalInfoVisibility(!isModalInfoVisible); };
     return (
         <header className="Header">
-            <button onClick={toggleModalInfo}><LuInfo color='#fff' size="2.8rem"/></button>
+            <button aria-label='اطلاعات اپلیکیشن' onClick={toggleModalInfo}><LuInfo color='#fff' size="2.8rem"/></button>
             <h1>مغالطات</h1>
             <h2>مرجعی برای تسلط بر مغالطات به همراه مثال‌های کاربردی و آزمون‌گیری</h2>
             <input type="search" placeholder="جست‌وجوی مغالطه..." value={searchValue} onChange={({ target }) => { updateSearchValue(target.value); }} />

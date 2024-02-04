@@ -41,7 +41,7 @@ const ModalResults = ({ questions }) => {
             <h1>{renderText()}</h1>
             <h2>درصد شما: {toFarsiNumber((correctPercentage === 100) || (correctPercentage === 0) ? correctPercentage : correctPercentage.toFixed(1))}</h2>
             <p>{renderDescription()}</p>
-            <button onClick={goHome}><GoHome size="2.3rem" /> صفحه اصلی</button>
+            <button aria-label='صفحه اصلی' onClick={goHome}><GoHome size="2.3rem" /> صفحه اصلی</button>
         </div>
     );
 };

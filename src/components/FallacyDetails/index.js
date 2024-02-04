@@ -60,7 +60,7 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
         <div ref={fallacyDetailsWrapper} style={{ visibility: 'hidden' }} className="FallacyDetails__wrapper -hidden">
             <div onClick={hideFallacyDetails} className="FallacyDetails__contentFader" />
             <div ref={fallacyDetails} className="FallacyDetails">
-              <button onClick={hideFallacyDetails} className="FallacyDetails__buttonClose">
+              <button aria-label='بستن' onClick={hideFallacyDetails} className="FallacyDetails__buttonClose">
                   <IoCloseOutline size="3rem" />
               </button>
               <h2 className="FallacyDetails__title">{`مغالطه ${selectedFallacy?.title}`}</h2>
@@ -75,7 +75,7 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
               {/* Specific Content for "مغالطه آماری: نمودارهای  گمراه‌کننده" and "مغالطه آماری: تصاویر یک بعدی" */}
               {renderFallacyImages()
               }
-              <button onClick={onButtonCopyClick} className="FallacyDetails__buttonCopyMessage">کسی از این مغالطه استفاده می‌کند؟!</button>
+              <button aria-label='کسی از این مغالطه استفاده می‌کند؟' onClick={onButtonCopyClick} className="FallacyDetails__buttonCopyMessage">کسی از این مغالطه استفاده می‌کند؟!</button>
             </div>
             <ImageViewer src={activeImageSrc} onClose={() => updateActiveImageSrc(null)} />
         </div>

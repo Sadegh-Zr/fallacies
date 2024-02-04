@@ -16,7 +16,7 @@ const ImageViewer = ({ src, onClose }) => {
     }
     return (
         <div className="ImageViewer">
-            <button onClick={handleClick}>
+            <button aria-label='بستن' onClick={handleClick}>
                 <IoCloseOutline size="3rem" color='#fff' />
             </button>
             <img src={src} />

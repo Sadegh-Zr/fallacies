@@ -63,7 +63,7 @@ const Exam = () => {
 
         const renderChoices = () => item.choices.map(choice => {
             return (
-                <button key={choice.title} onClick={(e) => { handleClick(e, choice)}} className='Exam__questionAnswer'>{choice.title}</button>
+                <button aria-label={choice.title} key={choice.title} onClick={(e) => { handleClick(e, choice)}} className='Exam__questionAnswer'>{choice.title}</button>
             )
         });
 

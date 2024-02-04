@@ -17,13 +17,13 @@ const ModalExam = ({ isVisible, toggle }) => {
     return (
         <Rodal visible={isVisible} leaveAnimation='door' onClose={toggle} showCloseButton={false}>
             <div className='ModalExam'>
-                <button onClick={toggle} className="ModalExam__buttonClose">
+                <button aria-label='بستن' onClick={toggle} className="ModalExam__buttonClose">
                     <IoCloseOutline size="3rem" />
                 </button>
                 <h1 className='ModalExam__title'>آزمون</h1>
                 <p className="ModalExam__description">لطفا تعداد سؤالات را مشخص نمایید.</p>
                 <ChoiceList items={QUESTION_NUMBERS} value={selectedNumber} onChange={updateSelectedNumber} />
-                <button onClick={goToExamPage} className="ModalExam__submit">شروع آزمون</button>
+                <button aria-label='شروع آزمون' onClick={goToExamPage} className="ModalExam__submit">شروع آزمون</button>
             </div>
         </Rodal>
     )

@@ -4,7 +4,7 @@ import './ChoiceList.css';
 const ChoiceList = ({ items, value, onChange }) => {
     const renderChoices = () => items.map(item => {
         return (
-            <button key={item.value} className={`ChoiceList__choice ${value === item.value ? '-selected' : ''}`} onClick={() => { onChange(item.value); }}>{item.text}</button>
+            <button key={item.value} aria-label={item.text} className={`ChoiceList__choice ${value === item.value ? '-selected' : ''}`} onClick={() => { onChange(item.value); }}>{item.text}</button>
         )
     })
     return (
