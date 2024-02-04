@@ -61,15 +61,18 @@ module.exports = {
             type: "image/jpeg",
             label: "صفحه نتایج آزمون | موبایل"
           },
-          {
-            src: "./src/images/screenshot6.png",
-            sizes: "591x1280",
-            type: "image/png",
-            form_factor: "wide",
-            label: "صفحه نتایج آزمون |‌ دسکتاپ"
-          },
+          // {
+          //   src: "./src/images/screenshot6.png",
+          //   sizes: "591x1280",
+          //   type: "image/png",
+          //   label: "صفحه نتایج آزمون |‌ دسکتاپ",
+          //   form_factor: "wide",
+          // },
         ],
         icon: "./src/images/icon.svg",
+        icon_options: {
+          purpose: `maskable`,
+        },
 
       },
     },
