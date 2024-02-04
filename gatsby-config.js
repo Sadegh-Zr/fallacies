@@ -71,7 +71,7 @@ module.exports = {
         ],
         icon: "./src/images/icon.svg",
         icon_options: {
-          purpose: `maskable`,
+          purpose: `any maskable`,
         },
 
       },
