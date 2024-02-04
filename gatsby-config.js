@@ -59,7 +59,14 @@ module.exports = {
             src: "./src/images/screenshot5.jpg",
             sizes: "591x1280",
             type: "image/jpeg",
-            label: "صفحه نتایج آزمون"
+            label: "صفحه نتایج آزمون | موبایل"
+          },
+          {
+            src: "./src/images/screenshot6.png",
+            sizes: "591x1280",
+            type: "image/png",
+            form_factor: "wide",
+            label: "صفحه نتایج آزمون |‌ دسکتاپ"
           },
         ],
         icon: "./src/images/icon.svg",
