@@ -111,7 +111,7 @@ export default Exam;
 
 export const Head = () => (
     <>
-        <html lang="fa" dir='rtl' />
+        <html translate="no" lang="fa" dir='rtl' />
         <title>مغالطات | آزمون</title>
         <meta name="theme-color" content="#fbc531" />
         <meta name="description" content="آزمون‌گیری از مغالطات"/>
