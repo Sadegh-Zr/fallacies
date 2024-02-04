@@ -33,6 +33,7 @@ body {
     height: 100%;
     overflow: hidden;
     color: var(--color-text-primary);
+    max-width: 100vw;
 }
 
 #___gatsby, #___gatsby > * {
