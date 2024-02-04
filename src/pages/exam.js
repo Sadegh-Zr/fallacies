@@ -30,7 +30,7 @@ const QUESTIONS = questionsJSON.list.map(question => {
 const Exam = () => {
     const [iterator, updateIterator] = React.useState(0);
     const searchParams = new URLSearchParams(isBrowser ? window.location.search : '');
-    const EXAM_QUESTIONS = React.useRef(getRandomItemsFromArray(QUESTIONS, searchParams.get('n')));
+    const EXAM_QUESTIONS = React.useRef(getRandomItemsFromArray(QUESTIONS, searchParams.get('n') || 10));
     const [isResultsModalVisible, setResultsModalVisibility] = React.useState(false);
     const [activeImageSrc, updateActiveImageSrc] = React.useState(null);
     
