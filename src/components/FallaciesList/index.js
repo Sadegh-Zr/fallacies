@@ -24,8 +24,19 @@ const FallaciesList = ({ setSelectedFallacy, searchValue }) => {
   }
 
   const renderFallacies = () => {
-      const data = fallaciesJSON.data.filter(({ title }) => title.includes(searchValue));
-      if (!data.length) {
+    const filteredData = fallaciesJSON.data.filter(({ title }) => title.includes(searchValue));
+    const categorizedData = filteredData.reduce((previous, next) => {
+      const isCategoryCreated = previous.some(previousItem => previousItem.title === next.category);
+      if (!isCategoryCreated) return [...previous, { title: next.category, items: [next] }];
+      const editedData = previous.map(previousItem => {
+        if (previousItem.title === next.category) return {...previousItem, items: [...previousItem.items, next]};
+        return previousItem;
+      });
+      return editedData;
+    }, []);
+    const finalData = searchValue ? categorizedData : categorizedData;
+    
+      if (!finalData.length) {
         return (
           <div className="FallaciesList__notFound">
             <RiMenuSearchLine size="5rem" />
@@ -33,9 +44,23 @@ const FallaciesList = ({ setSelectedFallacy, searchValue }) => {
           </div>
         )
       };
-      return data.map(fallacy => (
-        <button onClick={() => { handleClick(fallacy) }} key={fallacy.id}>{remindingFallacies.includes(fallacy.id) && <span />} {`مغالطه ${fallacy.title}`}</button>
-      ))
+      
+      return finalData.map(item => {
+        return (
+          <div key={item.title} className='FallaciesList__category'>
+            <div className='FallaciesList__categoryTitleContainer'>
+              <span/>
+              <h3 className='FallaciesList__categoryTitle'>{item.title}</h3>
+              <span />
+            </div>
+            <div className='FallaciesList__categoryList'>
+              {item.items.map(buttonItem => (
+                <button onClick={() => { handleClick(buttonItem) }} key={buttonItem.id}>{remindingFallacies.includes(buttonItem.id) && <span className='FallaciesList__readMark' />} {`مغالطه ${buttonItem.title}`}</button>
+              ))}
+            </div>
+          </div>
+        )
+      });
     };
     return (
         <div className="FallaciesList">
