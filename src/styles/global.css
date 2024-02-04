@@ -49,8 +49,18 @@ button {
     font-family: inherit !important;
 }
 
+/* Overwrite Rodal Styles To Have Auto Height Due To Content's Height */
+
 .rodal-dialog {
     width: 400px !important;
     max-width: calc(100vw - 6rem) !important;
     padding: 0 !important;
+    height: auto !important;
+    position: relative !important;
+}
+
+.rodal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -6,7 +6,7 @@ import { IoCloseOutline } from "react-icons/io5";
 
 const ModalInfo = ({ isVisible, toggle }) => {
     return (
-        <Rodal visible={isVisible} leaveAnimation='door' onClose={toggle} showCloseButton={false} customStyles={{ height: 'auto', position: 'relative'}} className='s'>
+        <Rodal visible={isVisible} leaveAnimation='door' onClose={toggle} showCloseButton={false}>
         <div className='ModalInfo'>
             <button className="ModalInfo__closeIconButton" onClick={toggle}>
                 <IoCloseOutline size="3rem" />
