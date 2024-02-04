@@ -36,8 +36,9 @@ const Exam = () => {
     
     React.useEffect(() => {
         if (isResultsModalVisible) {
+            const previousList = JSON.parse(localStorage.getItem('remindingFallacies')) || [];
             const remindingFallacies = EXAM_QUESTIONS.current.filter(_q => _q.hasError).map(_q => _q.fallacyId);
-            localStorage.setItem('remindingFallacies', JSON.stringify(remindingFallacies));
+            localStorage.setItem('remindingFallacies', JSON.stringify([...previousList, ...remindingFallacies]));
         }
     }, [isResultsModalVisible]);
 
@@ -113,6 +114,7 @@ export const Head = () => (
         <html lang="fa" dir='rtl' />
         <title>مغالطات | آزمون</title>
         <meta name="theme-color" content="#fbc531" />
+        <meta name="description" content="آزمون‌گیری از مغالطات"/>
     </>
   )
   
