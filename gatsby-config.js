@@ -2,6 +2,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  pathPrefix: "/fallacies",
   siteMetadata: {
     siteUrl: `https://sadegh-zr.github.io/fallacies`,
     title: "مغالطات",

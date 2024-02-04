@@ -11,8 +11,9 @@
     "develop": "gatsby develop",
     "start": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "serve": "gatsby serve --prefix-paths",
+    "clean": "gatsby clean",
+    "deploy": "gatsby clean && gatsby build --prefix-paths && gh-pages -f -d public"
   },
   "dependencies": {
     "dompurify": "^3.0.8",
@@ -25,5 +26,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
     "rodal": "^2.1.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
