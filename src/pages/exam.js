@@ -110,8 +110,9 @@ export default Exam;
 
 export const Head = () => (
     <>
-      <title>مغالطات | آزمون</title>
-      <meta name="theme-color" content="#fbc531" />
+        <html lang="fa" dir='rtl' />
+        <title>مغالطات | آزمون</title>
+        <meta name="theme-color" content="#fbc531" />
     </>
   )
   

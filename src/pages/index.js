@@ -32,6 +32,7 @@ export default IndexPage;
 
 export const Head = () => (
   <>
+    <html lang="fa" dir='rtl' />
     <title>مغالطات</title>
     <meta name="theme-color" content="#fbc531" />
   </>
