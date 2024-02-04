@@ -1,4 +1,4 @@
-import DOMPurify from "dompurify";
+import DOMPurify from "isomorphic-dompurify";
 import parse from 'html-react-parser';
 
 const shuffle = (array) => { 

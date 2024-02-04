@@ -22,6 +22,7 @@
     "gatsby-plugin-nprogress": "^5.13.1",
     "gatsby-plugin-offline": "^6.13.1",
     "html-react-parser": "^5.1.1",
+    "isomorphic-dompurify": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
