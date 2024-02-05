@@ -65,7 +65,7 @@ module.exports = {
             sizes: "1278x718",
             type: "image/png",
             label: "صفحه نتایج آزمون |‌ دسکتاپ",
-            // form_factor: "wide",
+            form_factor: "wide",
           },
         ],
         icon: "./src/images/icon.svg",

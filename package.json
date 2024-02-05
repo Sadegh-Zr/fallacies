@@ -18,7 +18,7 @@
   "dependencies": {
     "dompurify": "^3.0.8",
     "gatsby": "^5.13.0",
-    "gatsby-plugin-manifest": "^5.13.1",
+    "gatsby-plugin-manifest": "github:Sadegh-Zr/gatsby-plugin-manifest",
     "gatsby-plugin-nprogress": "^5.13.1",
     "gatsby-plugin-offline": "^6.13.1",
     "html-react-parser": "^5.1.1",
