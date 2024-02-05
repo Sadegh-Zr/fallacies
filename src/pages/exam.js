@@ -114,6 +114,7 @@ export const Head = () => (
         <html translate="no" lang="fa" dir='rtl' />
         <title>مغالطات | آزمون</title>
         <meta name="theme-color" content="#fbc531" />
+        <meta name="google" content="notranslate" />
         <meta name="description" content="آزمون‌گیری از مغالطات"/>
     </>
   )
