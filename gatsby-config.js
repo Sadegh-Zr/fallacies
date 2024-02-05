@@ -2,12 +2,11 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 
-const siteUrl = 'https://sadegh-zr.github.io/fallacies';
+const siteUrl = 'https://sadegh-zr.github.io/fallacies/';
 
 module.exports = {
   pathPrefix: "/fallacies",
   siteMetadata: {
-    title: "مغالطات",
     siteUrl
   },
   plugins: [
@@ -21,7 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        siteUrl: `https://sadegh-zr.github.io/fallacies`,
+        siteUr,
         name: `مغالطات`,
         description: "مرجعی برای تسلط به مغالطات به همراه مثال‌های کاربردی و آزمون‌گیری",
         short_name: `مغالطات`,
