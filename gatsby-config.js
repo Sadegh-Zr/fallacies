@@ -31,37 +31,37 @@ module.exports = {
         theme_color_in_head: false,
         screenshots: [
           {
-            src: "/screenshots/screenshot1.jpg",
+            src: "/fallacies/screenshots/screenshot1.jpg",
             sizes: "591x1280",
             type: "image/jpeg",
             label: "صفحه اصلی با مشخص بودن مغالطاتی که نیاز به مرور دارند"
           },
           {
-            src: "/screenshots/screenshot2.jpg",
+            src: "/fallacies/screenshots/screenshot2.jpg",
             sizes: "591x1280",
             type: "image/jpeg",
             label: "توضیحات و مثال‌های هر مغالطه",
           },
           {
-            src: "/screenshots/screenshot3.jpg",
+            src: "/fallacies/screenshots/screenshot3.jpg",
             sizes: "591x1280",
             type: "image/jpeg",
             label: "کسی دچار مغالطه خاصی شده است؟ متنی که اپلیکیشن برای شما تولید می‌کند برای او بفرستید!"
           },
           {
-            src: "/screenshots/screenshot4.jpg",
+            src: "/fallacies/screenshots/screenshot4.jpg",
             sizes: "591x1280",
             type: "image/jpeg",
             label: "بخش آزمون با قابلیت نمایش خطاها و مرور آن‌ها"
           },
           {
-            src: "/screenshots/screenshot5.jpg",
+            src: "/fallacies/screenshots/screenshot5.jpg",
             sizes: "591x1280",
             type: "image/jpeg",
             label: "صفحه نتایج آزمون | موبایل"
           },
           {
-            src: "/screenshots/screenshot6.png",
+            src: "/fallacies/screenshots/screenshot6.png",
             sizes: "1278x718",
             type: "image/png",
             label: "صفحه نتایج آزمون |‌ دسکتاپ",
