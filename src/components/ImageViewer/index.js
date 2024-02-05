@@ -10,7 +10,7 @@ const ImageViewer = ({ src, onClose }) => {
     }, [src])
     if (!src) return;
     const handleClick = () => {
-        const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary');;
+        const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary');
         updateBrowserColor(primaryColor);
         onClose();
     }

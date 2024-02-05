@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { isBrowser } from '../../utils';
+import { isBrowser, updateBrowserColor } from '../../utils';
 import './ModalCopy.css';
 
 const ModalCopy = ({ isOpen, selectedFallacy, hideModal }) => {
@@ -8,6 +8,7 @@ const ModalCopy = ({ isOpen, selectedFallacy, hideModal }) => {
     const url = isBrowser ? window.location.href.split('?')[0] : '';
     React.useEffect(() => {
     if(isOpen) {
+        updateBrowserColor('#2ecc71')
         container.current.style.visibility = 'visible';
         container.current.classList.remove('-closed');
         textContainer.current.classList.add('-scaleIn');
@@ -27,6 +28,8 @@ const ModalCopy = ({ isOpen, selectedFallacy, hideModal }) => {
             container.current.style.visibility = 'hidden';
             textContainer.current.classList.remove('-scaleOut');
             textContainer.current.classList.remove('-scaleIn');
+            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary');
+            updateBrowserColor(primaryColor)
             hideModal();
           }
         }
