@@ -19,7 +19,7 @@ const ImageViewer = ({ src, onClose }) => {
             <button aria-label='بستن' onClick={handleClick}>
                 <IoCloseOutline size="3rem" color='#fff' />
             </button>
-            <img src={src} />
+            <img alt="تصویر بزرگنمایی شده" src={src} />
         </div>
     )
 };

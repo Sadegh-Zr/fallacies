@@ -3,10 +3,9 @@ import './exam.css';
 import questionsJSON from '../../content/questions.json';
 import { getAllSiblings, getRandomItemsFromArray, isBrowser, parseHTML, shuffle, toFarsiNumber } from '../utils';
 import { QUESTION_DELAY } from '../constants';
-import ModalResults from '../components/ModalResults';
 import graph5 from '../images/graph5.png'
 import graph6 from '../images/graph6.png'
-import ImageViewer from '../components/ImageViewer';
+import { ImageViewer, ModalResults } from '../components';
 
 const GRAPH_QUESTION_IMAGES = [
     {
@@ -72,7 +71,7 @@ const Exam = () => {
         const renderQuestionImage = () => {
             const questionWithImage = GRAPH_QUESTION_IMAGES.find(({ id }) => item.id === id);
             if (questionWithImage) return (
-                <img src={questionWithImage.image} onClick={() => { updateActiveImageSrc(questionWithImage.image); }} />
+                <img alt="تصویر سؤال" src={questionWithImage.image} onClick={() => { updateActiveImageSrc(questionWithImage.image); }} />
             );
           };
 

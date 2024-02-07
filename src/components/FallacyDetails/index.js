@@ -28,8 +28,8 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
       const fallacyWithImage = GRAPH_FALLACIES_IMAGES.find(({ id }) => selectedFallacy?.id === id);
       if (fallacyWithImage) return (
         <div className='FallacyDetails__graphContainer'>
-          <img src={fallacyWithImage.images[0]} onClick={() => { updateActiveImageSrc(fallacyWithImage.images[0]); }} />
-          <img src={fallacyWithImage.images[1]} onClick={() => { updateActiveImageSrc(fallacyWithImage.images[1]); }} />
+          <img alt="تصویر سمت راست" src={fallacyWithImage.images[0]} onClick={() => { updateActiveImageSrc(fallacyWithImage.images[0]); }} />
+          <img alt='تصویر سمت چپ' src={fallacyWithImage.images[1]} onClick={() => { updateActiveImageSrc(fallacyWithImage.images[1]); }} />
         </div>
       );
     };
