@@ -50,7 +50,7 @@ const FallaciesList = ({ setSelectedFallacy, searchValue }) => {
           <div key={item.title} className='FallaciesList__category'>
             <div className='FallaciesList__categoryTitleContainer'>
               <span/>
-              <h3 className='FallaciesList__categoryTitle'>{item.title}</h3>
+              <h1 className='FallaciesList__categoryTitle'>{item.title}</h1>
               <span />
             </div>
             <div className='FallaciesList__categoryList'>
