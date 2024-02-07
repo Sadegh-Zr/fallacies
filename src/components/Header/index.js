@@ -1,12 +1,35 @@
 import * as React from 'react';
 import { LuInfo } from "react-icons/lu";
+import { isBrowser } from '../../utils';
 
 import './Header.css';
 import ModalInfo from '../ModalInfo';
 
 const Header = ({ searchValue, updateSearchValue }) => {
-    const [isModalInfoVisible, setModalInfoVisibility] = React.useState(false);
-    const toggleModalInfo = () => { setModalInfoVisibility(!isModalInfoVisible); };
+    const isModalInfoShownFromStorage = !JSON.parse(isBrowser ? localStorage.getItem('hasInfoShown') : false);
+    const [isModalInfoVisible, setModalInfoVisibility] = React.useState(isModalInfoShownFromStorage);
+    const installPrompt = React.useRef();
+    React.useEffect(() => {
+        const handleBeforeInstall = (event) => {
+          if(!event.prompt) return;
+          event.preventDefault();
+          installPrompt.current = event;
+        }
+        window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+        return () => {
+          window.removeEventListener('beforeinstallprompt', handleBeforeInstall, true);
+        }
+      }, []);
+
+      const toggleModalInfo = () => {
+        if (isModalInfoVisible) {
+          if (!JSON.parse(localStorage.getItem('hasInfoShown'))) {
+            if(installPrompt.current?.prompt) installPrompt.current.prompt();
+          }
+          setModalInfoVisibility(false);
+          localStorage.setItem('hasInfoShown', true);
+        } else setModalInfoVisibility(true);
+      };
     return (
         <header className="Header">
             <button aria-label='اطلاعات اپلیکیشن' onClick={toggleModalInfo}><LuInfo color='#fff' size="2.8rem"/></button>
