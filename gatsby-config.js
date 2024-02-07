@@ -65,13 +65,13 @@ module.exports = {
             form_factor: "narrow",
             label: "نتایج آزمون",
           },
-          {
-            src: "/fallacies/screenshots/6.png",
-            sizes: "1115x624",
-            type: "image/png",
-            label: "صفحه اصلی با مشخص بودن مغالطاتی که نیاز به مرور دارند",
-            form_factor: "wide",
-          },
+          // {
+          //   src: "/fallacies/screenshots/6.png",
+          //   sizes: "1115x624",
+          //   type: "image/png",
+          //   label: "صفحه اصلی با مشخص بودن مغالطاتی که نیاز به مرور دارند",
+          //   form_factor: "wide",
+          // },
           {
             src: "/fallacies/screenshots/7.png",
             sizes: "1115x624",
@@ -93,13 +93,13 @@ module.exports = {
             label: "بخش آزمون با قابلیت نمایش خطاها و مرور آن‌ها",
             form_factor: "wide",
           },
-          {
-            src: "/fallacies/screenshots/10.png",
-            sizes: "1115x624",
-            type: "image/png",
-            label: "بخش نتایج آزمون",
-            form_factor: "wide",
-          },
+          // {
+          //   src: "/fallacies/screenshots/10.png",
+          //   sizes: "1115x624",
+          //   type: "image/png",
+          //   label: "بخش نتایج آزمون",
+          //   form_factor: "wide",
+          // },
         ],
         icon: "./src/images/icon.svg",
         icons: [
@@ -111,12 +111,13 @@ module.exports = {
           },
           {
             src: `/favicons/android-chrome-192x192.png`,
-            sizes: `256x256`,
+            sizes: `192x192`,
             type: `image/png`,
+            purpose: 'any',
           },
           {
-            src: `/favicons/android-chrome-384x384.png`,
-            sizes: `384x384`,
+            src: `/favicons/android-chrome-512x512.png`,
+            sizes: `512x512`,
             type: `image/png`,
             purpose: 'maskable',
           },
@@ -124,9 +125,9 @@ module.exports = {
             src: `/favicons/android-chrome-512x512.png`,
             sizes: `512x512`,
             type: `image/png`,
+            purpose: 'any',
           },
         ]
-
       },
     },
     'gatsby-plugin-offline'
