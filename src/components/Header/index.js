@@ -6,30 +6,10 @@ import './Header.css';
 import ModalInfo from '../ModalInfo';
 
 const Header = ({ searchValue, updateSearchValue }) => {
-    const isModalInfoShownFromStorage = !JSON.parse(isBrowser ? localStorage.getItem('hasInfoShown') : false);
-    const [isModalInfoVisible, setModalInfoVisibility] = React.useState(isModalInfoShownFromStorage);
-    const installPrompt = React.useRef();
-    React.useEffect(() => {
-        const handleBeforeInstall = (event) => {
-          if(!event.prompt) return;
-          event.preventDefault();
-          installPrompt.current = event;
-        }
-        window.addEventListener('beforeinstallprompt', handleBeforeInstall);
-        return () => {
-          window.removeEventListener('beforeinstallprompt', handleBeforeInstall, true);
-        }
-      }, []);
-
-      const toggleModalInfo = () => {
-        if (isModalInfoVisible) {
-          if (!JSON.parse(localStorage.getItem('hasInfoShown'))) {
-            if(installPrompt.current?.prompt) installPrompt.current.prompt();
-          }
-          setModalInfoVisibility(false);
-          localStorage.setItem('hasInfoShown', true);
-        } else setModalInfoVisibility(true);
-      };
+    const [isModalInfoVisible, setModalInfoVisibility] = React.useState(false);
+    const toggleModalInfo = () => {
+      setModalInfoVisibility(!isModalInfoVisible);
+    };
     return (
         <header className="Header">
             <div className='Header__subContainer'>

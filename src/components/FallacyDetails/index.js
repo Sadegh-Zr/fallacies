@@ -23,6 +23,7 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
     const fallacyDetailsWrapper = React.useRef(null);
     const fallacyDetails = React.useRef(null);
     const [activeImageSrc, updateActiveImageSrc] = React.useState('');
+    const installPrompt = React.useRef();
     
     const renderFallacyImages = () => {
       const fallacyWithImage = GRAPH_FALLACIES_IMAGES.find(({ id }) => selectedFallacy?.id === id);
@@ -33,6 +34,20 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
         </div>
       );
     };
+
+    // Catch Install Event
+    React.useEffect(() => {
+      const handleBeforeInstall = (event) => {
+        if(!event.prompt) return;
+        event.preventDefault();
+        installPrompt.current = event;
+      }
+      window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+      return () => {
+        window.removeEventListener('beforeinstallprompt', handleBeforeInstall, true);
+      }
+    }, []);
+
 
     React.useEffect(() => {
         if (!selectedFallacy) return;
@@ -46,6 +61,7 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
             if (!isClosed) return;
             fallacyDetailsWrapper.current.style.visibility = 'hidden';
             setSelectedFallacy(null);
+            installPrompt.current?.prompt();
           }
         fallacyDetails.current.addEventListener('transitionend', handleFallacyDetailsTransitionEnd);
         return () => {
