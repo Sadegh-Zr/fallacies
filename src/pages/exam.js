@@ -101,7 +101,7 @@ const Exam = () => {
             {isResultsModalVisible && (
                 <ModalResults questions={EXAM_QUESTIONS.current} />
             )}
-            <ImageViewer src={activeImageSrc} onClose={() => { updateActiveImageSrc(null); }}/>
+            <ImageViewer alt="تصویر سؤال" src={activeImageSrc} onClose={() => { updateActiveImageSrc(null); }} />
         </main>
     )
 };
