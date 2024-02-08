@@ -48,6 +48,16 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
       }
     }, []);
 
+    React.useEffect(() => {
+      window.navigator.getInstalledRelatedApps()
+        .then(result => {
+          console.log(result)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }, [])
+
 
     React.useEffect(() => {
         if (!selectedFallacy) return;
