@@ -47,31 +47,22 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
         window.removeEventListener('beforeinstallprompt', handleBeforeInstall, true);
       }
     }, []);
-
+    
     React.useEffect(() => {
-      window.navigator.getInstalledRelatedApps()
-        .then(result => {
-          console.log(result)
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    }, [])
-
-
-    React.useEffect(() => {
-        if (!selectedFallacy) return;
+      if (!selectedFallacy) return;
         fallacyDetailsWrapper.current.style.visibility = 'visible';
         fallacyDetailsWrapper.current.classList.remove('-hidden')
       }, [selectedFallacy]);
-
-    React.useEffect(() => {
+      
+      React.useEffect(() => {
         const handleFallacyDetailsTransitionEnd = () => {
-            const isClosed = fallacyDetailsWrapper.current.classList.contains('-hidden');
-            if (!isClosed) return;
-            fallacyDetailsWrapper.current.style.visibility = 'hidden';
-            setSelectedFallacy(null);
+          const isClosed = fallacyDetailsWrapper.current.classList.contains('-hidden');
+          if (!isClosed) return;
+          fallacyDetailsWrapper.current.style.visibility = 'hidden';
+          setSelectedFallacy(null);
+            if (localStorage.getItem('isInstallPromptShown')) return;
             installPrompt.current?.prompt();
+            localStorage.setItem('isInstallPromptShown', true)
           }
         fallacyDetails.current.addEventListener('transitionend', handleFallacyDetailsTransitionEnd);
         return () => {
