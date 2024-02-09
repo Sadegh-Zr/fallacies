@@ -3,7 +3,7 @@ import './ModalResults.css';
 import { EXAM_RESULTS_RANGE } from '../../constants';
 import { isInRange, toFarsiNumber } from '../../utils';
 import questionsJSON from '../../../content/questions.json';
-import { navigate } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { GoHome } from "react-icons/go";
 
 const ModalResults = ({ questions }) => {
@@ -15,9 +15,6 @@ const ModalResults = ({ questions }) => {
         document.querySelector('meta[name="theme-color"]').setAttribute('content',  color);
     }, []);
 
-    const goHome = () => {
-        navigate('/', { replace: true })
-    }
     const renderText = () => {
         if (correctPercentage === 100) return "بسیار عالی! شما تمام سؤالات را به درستی پاسخ دادید"
         else if (correctPercentage === 0) return "متأسفانه شما موفق نشدید به هیچ سؤالی پاسخ صحیح بدهید."
@@ -41,7 +38,7 @@ const ModalResults = ({ questions }) => {
             <h1>{renderText()}</h1>
             <h2>درصد شما: {toFarsiNumber((correctPercentage === 100) || (correctPercentage === 0) ? correctPercentage : correctPercentage.toFixed(1))}</h2>
             <p>{renderDescription()}</p>
-            <button aria-label='صفحه اصلی' onClick={goHome}><GoHome size="2.3rem" /> صفحه اصلی</button>
+            <Link to="/" className='ModalResults__button'><GoHome size="2.3rem" /> صفحه اصلی</Link>
         </div>
     );
 };

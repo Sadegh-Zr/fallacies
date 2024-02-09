@@ -71,7 +71,7 @@
     opacity: 0.1;
 }
 
-.ModalResults button {
+.ModalResults__button {
     margin-top: 2rem;
     font-size: 2rem;
     border: none;
@@ -83,13 +83,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    color: #000;
 }
 
-.ModalResults button svg {
+.ModalResults__button svg {
     margin-left: 0.5rem;
 }
 
-.ModalResults button:active {
+.ModalResults__button:active {
     background-color: #d4d4d4;
 }
 
