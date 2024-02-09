@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import './index.css';
-import { Header, FallaciesList, FallacyDetails, ModalCopy, ModalExam } from "../components";
+import { Header, FallaciesList, FallacyDetails, ModalCopy, ModalExam, Seo } from "../components";
 import { HiOutlineNewspaper } from "react-icons/hi2";
 
 
@@ -29,12 +29,4 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => (
-  <>
-    <html translate="no" lang="fa" dir='rtl' />
-    <title>مغالطات</title>
-    <meta name="google" content="notranslate" />
-    <meta name="theme-color" content="#fbc531" />
-    <meta name="description" content="مرجعی برای تسلط به مغالطات به همراه مثال‌های کاربردی و آزمون‌گیری" />
-  </>
-)
+export const Head = () => <Seo title="مغالطات" description="مرجعی برای تسلط به مغالطات به همراه مثال‌های کاربردی و آزمون" />;
