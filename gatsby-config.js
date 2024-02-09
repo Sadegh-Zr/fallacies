@@ -18,6 +18,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `examQuestionCount`,
+        path: `${__dirname}/examQuestionCount`,
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         siteUrl,

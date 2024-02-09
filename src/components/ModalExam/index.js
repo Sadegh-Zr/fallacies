@@ -2,14 +2,25 @@ import * as React from 'react';
 import Rodal from 'rodal';
 import { IoCloseOutline } from "react-icons/io5";
 import 'rodal/lib/rodal.css';
-import { Link, navigate } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 
 import './ModalExam.css';
 import ChoiceList from '../ChoiceList';
-import { QUESTION_NUMBERS } from '../../constants';
+import { toFarsiNumber } from '../../utils';
 
 const ModalExam = ({ isVisible, toggle }) => {
-    const [selectedNumber, updateSelectedNumber] = React.useState(QUESTION_NUMBERS[0].value);
+    const { allFile } = useStaticQuery(graphql`
+        query {
+            allFile {
+                nodes {
+                    name
+                }
+            }
+        }
+    `);
+
+    const questionNumbers = allFile.nodes.sort((a, b) => Number(a.name) - Number(b.name)).map(node => ({ value: node.name, text: toFarsiNumber(node.name) }));
+    const [selectedNumber, updateSelectedNumber] = React.useState(questionNumbers[0].value);
     return (
         <Rodal visible={isVisible} leaveAnimation='door' onClose={toggle} showCloseButton={false}>
             <div className='ModalExam'>
@@ -18,7 +29,7 @@ const ModalExam = ({ isVisible, toggle }) => {
                 </button>
                 <h1 className='ModalExam__title'>آزمون</h1>
                 <p className="ModalExam__description">لطفا تعداد سؤالات را مشخص نمایید.</p>
-                <ChoiceList items={QUESTION_NUMBERS} value={selectedNumber} onChange={updateSelectedNumber} />
+                <ChoiceList items={questionNumbers} value={selectedNumber} onChange={updateSelectedNumber} />
                 <Link className="ModalExam__submit" to={`/exam/${selectedNumber}`}>شروع آزمون</Link>
             </div>
         </Rodal>
