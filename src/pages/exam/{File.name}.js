@@ -93,7 +93,7 @@ const Exam = ({ params }) => {
         <main className='Exam'>
             <div className='Exam__titlesContainer'>
                 <h1 className='Exam__title'>سؤال {toFarsiNumber(iterator + 1)} از  {toFarsiNumber(EXAM_QUESTIONS.current.length)}</h1>
-                <h2 className='Exam__title'>عبارت زیر، بر چه نوع مغالطه‌ای دلالت دارد؟</h2>
+                <h2 className='Exam__title'>عبارت زیر، بر وقوع چه نوع مغالطه‌ای دلالت دارد؟</h2>
             </div>
             <div className='Exam__questionList'>
                 {renderQuestions()}
