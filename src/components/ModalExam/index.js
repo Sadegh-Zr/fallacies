@@ -24,12 +24,18 @@ const ModalExam = ({ isVisible, toggle }) => {
     return (
         <Rodal visible={isVisible} leaveAnimation='door' onClose={toggle} showCloseButton={false}>
             <div className='ModalExam'>
-                <button aria-label='بستن' onClick={toggle} className="ModalExam__buttonClose">
-                    <IoCloseOutline size="3rem" />
-                </button>
-                <h1 className='ModalExam__title'>آزمون</h1>
+                <div className='ModalExam__titleContainer'>
+                    <div>
+                        <button aria-label='بستن' onClick={toggle} className="ModalExam__buttonClose">
+                            <IoCloseOutline size="3rem" />
+                        </button>
+                    </div>
+                    <h1 className='ModalExam__title'>آزمون</h1>
+                    <div />
+                </div>
                 <p className="ModalExam__description">لطفا تعداد سؤالات را مشخص نمایید.</p>
                 <ChoiceList items={questionNumbers} value={selectedNumber} onChange={updateSelectedNumber} />
+                <p className='ModalExam__note'>دقت داشته باشید که از هر سؤال می‌توان برداشت‌های مختلفی نمود. سعی کنید متناسب‌ترین گزینه را انتخاب نمایید.</p>
                 <Link className="ModalExam__submit" to={`/exam/${selectedNumber}`}>شروع آزمون</Link>
             </div>
         </Rodal>

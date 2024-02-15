@@ -5,27 +5,55 @@
     padding-bottom: 2rem;
 }
 
+.ModalExam__titleContainer {
+    display: flex;
+    width: 100%;
+    padding: 0.5rem 0.5rem 0 0;
+    margin-bottom: 1rem;
+}
+
+.ModalExam__titleContainer > *:first-child, .ModalExam__titleContainer > *:last-child {
+    flex: 1;
+}
+
 .ModalExam__buttonClose {
     padding: 0.5rem;
-    background: transparent;
     border: none;
     align-self: flex-start;
+    width: 3.7rem;
+    height: 3.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: transparent;
+    transition: 0.2s ease-out;
+}
+
+.ModalExam__buttonClose:active {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .ModalExam__title {
     color: var(--color-primary);
     font-size: 2.3rem;
-    margin-top: -3rem;
 }
 
 .ModalExam__description {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.ModalExam__note {
+    font-size: 1.5rem;
+    padding: 0 2rem;
+    color: #919191;
+    margin-top: 1.5rem;
 }
 
 .ModalExam__submit {
     font-size: 2rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
     padding: 1rem 2rem;
     width: calc(100% - 8rem);
     max-width: 25rem;
