@@ -9,7 +9,7 @@
 
 .FallacyDetails {
     position: absolute;
-    width: calc(min(100%, var(--max-content-width)) - 10rem);
+    width: calc(min(100%, var(--max-content-width)) - 6rem);
     max-height: 90vh;
     padding-bottom: 2rem;
     background: #fff;
@@ -83,7 +83,7 @@
 
 .FallacyDetails__description {
     font-size: 1.7rem;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     color: #616161;
     position: relative;
     text-align: justify;
@@ -120,7 +120,7 @@
 
 .FallacyDetails__example {
     font-size: 1.7rem;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     color: var(--color-primary);
     text-align: justify;
 }
