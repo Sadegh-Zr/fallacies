@@ -4,18 +4,40 @@
     align-items: center;
 }
 
+.ModalInfo__titleContainer {
+    display: flex;
+    width: 100%;
+    padding: 0.5rem 0.5rem 0 0;
+    margin-bottom: 1rem;
+}
+
+.ModalInfo__titleContainer > *:first-child, .ModalInfo__titleContainer > *:last-child {
+    flex: 1;
+}
+
+
 .ModalInfo h1 {
     font-size: 2.3rem;
     text-align: center;
-    margin-top: -3rem;
     color: var(--color-primary);
 }
 
 .ModalInfo__closeIconButton {
     padding: 0.5rem;
-    background: transparent;
     border: none;
     align-self: flex-start;
+    width: 3.7rem;
+    height: 3.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: transparent;
+    transition: 0.2s ease-out;
+}
+
+.ModalInfo__closeIconButton:active {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .ModalInfo p {
