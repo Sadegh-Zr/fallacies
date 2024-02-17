@@ -12,7 +12,7 @@ const ModalCopy = ({ isOpen, selectedFallacy, hideModal }) => {
         container.current.style.visibility = 'visible';
         container.current.classList.remove('-closed');
         textContainer.current.classList.add('-scaleIn');
-        navigator.clipboard.writeText(`با احترام، به نظر می‌رسد که کلام شما دچار مغالطه ${selectedFallacy.title} شده است. برای مطالعه در مورد این مغالطه در مرجع مغالطات، می‌توانید از لینک زیر استفاده کنید: \n ${url}?fid=${selectedFallacy.id}`)
+        navigator.clipboard.writeText(`با احترام، به نظر می‌رسد که کلام شما دچار مغالطه «${selectedFallacy.title}» شده است. برای مطالعه در مورد این مغالطه در مرجع مغالطات، می‌توانید از لینک زیر استفاده کنید: \n ${url}?fid=${selectedFallacy.id}`)
         setTimeout(() => {
             textContainer.current.classList.add('-scaleOut');
             setTimeout(() => {
