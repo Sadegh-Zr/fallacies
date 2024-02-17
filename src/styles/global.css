@@ -64,3 +64,15 @@ button {
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 380px) {
+    html {
+        font-size: 57%;
+    }
+}
+
+@media (max-width: 350px) {
+    html {
+        font-size: 50%;
+    }
+}
