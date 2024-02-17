@@ -28,8 +28,7 @@ const QUESTIONS = questionsJSON.list.map(question => {
 
 const Exam = ({ params }) => {
     const [iterator, updateIterator] = React.useState(0);
-    // const EXAM_QUESTIONS = React.useRef(getRandomItemsFromArray(QUESTIONS, Number(params.name)));
-    const EXAM_QUESTIONS = React.useRef(QUESTIONS.slice(256));
+    const EXAM_QUESTIONS = React.useRef(getRandomItemsFromArray(QUESTIONS, Number(params.name)));
     const [isResultsModalVisible, setResultsModalVisibility] = React.useState(false);
     const [activeImageSrc, updateActiveImageSrc] = React.useState(null);
     
