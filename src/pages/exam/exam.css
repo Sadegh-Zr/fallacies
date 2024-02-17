@@ -6,14 +6,14 @@
 }
 
 
-.Exam__titlesContainer {
+.Exam__titleContainer {
     text-align: center;
     width: 100%;
-    padding: 1rem 0;
+    margin-bottom: 1rem;
 }
 
 .Exam__title {
-    font-size: 2.3rem;
+    font-size: 2.1rem;
 }
 
 .Exam__questionList {
@@ -70,7 +70,7 @@
 
 .Exam__questionText {
     background-color: rgb(255, 255, 255);
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     border-radius: 10px;
     border: 2px solid rgba(44, 44, 44, 0.31);
     display: flex;
@@ -94,14 +94,14 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1.8rem;
+    gap: 1.5rem;
 }
 
 .Exam__questionAnswer {
     flex-basis: 100%;
     border-radius: 10rem;
     background-color: #fff;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     padding: 1.2rem;
     border: none;
     transition: 0.2s ease-out;

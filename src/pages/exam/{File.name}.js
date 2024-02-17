@@ -28,7 +28,8 @@ const QUESTIONS = questionsJSON.list.map(question => {
 
 const Exam = ({ params }) => {
     const [iterator, updateIterator] = React.useState(0);
-    const EXAM_QUESTIONS = React.useRef(getRandomItemsFromArray(QUESTIONS, Number(params.name)));
+    // const EXAM_QUESTIONS = React.useRef(getRandomItemsFromArray(QUESTIONS, Number(params.name)));
+    const EXAM_QUESTIONS = React.useRef(QUESTIONS.slice(256));
     const [isResultsModalVisible, setResultsModalVisibility] = React.useState(false);
     const [activeImageSrc, updateActiveImageSrc] = React.useState(null);
     
@@ -91,7 +92,7 @@ const Exam = ({ params }) => {
     
     return (
         <main className='Exam'>
-            <div className='Exam__titlesContainer'>
+            <div className='Exam__titleContainer'>
                 <h1 className='Exam__title'>سؤال {toFarsiNumber(iterator + 1)} از  {toFarsiNumber(EXAM_QUESTIONS.current.length)}</h1>
                 <h2 className='Exam__title'>عبارت زیر، بر وقوع چه نوع مغالطه‌ای دلالت دارد؟</h2>
             </div>
