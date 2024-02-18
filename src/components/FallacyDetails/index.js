@@ -86,19 +86,18 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
                 <h2 className="FallacyDetails__title">{`مغالطه ${selectedFallacy?.title}`}</h2>
                 <div />
               </div>
-              <p className="FallacyDetails__description"><span style={{ color: 'var(--color-primary)'}}>توضیح:‌ </span>{selectedFallacy?.description}</p>
-              <div className='FallacyDetails__examplesContainer'>
-                {selectedFallacy?.examples?.map((example, index) => (
-                    <div key={example.id} className="FallacyDetails__example">
-                      <span>{`مثال ${toFarsiNumber(index + 1)}: `}<span className="FallacyDetails__exampleValue">{parseHTML(example.value)}</span></span>
-                    </div>
-                ))}
+              <div className='FallacyDetails__contentContainer'>
+                <p className="FallacyDetails__description"><span style={{ color: 'var(--color-primary)'}}>توضیح:‌ </span>{selectedFallacy?.description}</p>
+                  {selectedFallacy?.examples?.map((example, index) => (
+                      <div key={example.id} className="FallacyDetails__example">
+                        <span>{`مثال ${toFarsiNumber(index + 1)}: `}<span className="FallacyDetails__exampleValue">{parseHTML(example.value)}</span></span>
+                      </div>
+                  ))}
+                {/* Specific Content for "مغالطه آماری: نمودارهای  گمراه‌کننده" and "مغالطه آماری: تصاویر یک بعدی" */}
+                {renderFallacyImages()}
               </div>
-              {/* Specific Content for "مغالطه آماری: نمودارهای  گمراه‌کننده" and "مغالطه آماری: تصاویر یک بعدی" */}
-              {renderFallacyImages()
-              }
-              <button aria-label='کسی از این مغالطه استفاده می‌کند؟' onClick={onButtonCopyClick} className="FallacyDetails__buttonCopyMessage">کسی از این مغالطه استفاده می‌کند؟!</button>
-            </div>
+                <button aria-label='کسی از این مغالطه استفاده می‌کند؟' onClick={onButtonCopyClick} className="FallacyDetails__buttonCopyMessage">کسی از این مغالطه استفاده می‌کند؟!</button>
+              </div>
             <ImageViewer src={activeImageSrc} onClose={() => updateActiveImageSrc(null)} />
         </div>
     );
