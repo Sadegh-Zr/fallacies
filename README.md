@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="[https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter](https://sadegh-zr.github.io/fallacies/)">
+  <a target="_blank" rel="noreferrer" href="https://sadegh-zr.github.io/fallacies/">
     <img alt="Gatsby" src="https://github.com/Sadegh-Zr/fallacies/assets/93543701/bc82423e-66e9-4f4c-bcbe-24cfbf3a9ecb" width="60" />
   </a>
 </p>
