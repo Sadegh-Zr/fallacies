@@ -8,3 +8,4 @@ export { default as ModalResults } from './ModalResults';
 export { default as ImageViewer } from './ImageViewer';
 export { default as ModalInfo } from './ModalInfo';
 export { default as Seo } from './Seo';
+export { default as FilterButton } from './FilterButton';

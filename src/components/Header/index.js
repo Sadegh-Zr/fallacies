@@ -1,15 +1,18 @@
 import * as React from 'react';
 import { LuInfo } from "react-icons/lu";
-import { isBrowser } from '../../utils';
 
 import './Header.css';
 import ModalInfo from '../ModalInfo';
+import FilterButton from '../FilterButton';
+import { FILTER_OPTIONS } from '../../constants';
 
-const Header = ({ searchValue, updateSearchValue }) => {
+const Header = ({ searchValue, updateSearchValue, filterValue, updateFilterValue }) => {
     const [isModalInfoVisible, setModalInfoVisibility] = React.useState(false);
+    
     const toggleModalInfo = () => {
       setModalInfoVisibility(!isModalInfoVisible);
     };
+
     return (
         <header className="Header">
             <div className='Header__subContainer'>
@@ -20,7 +23,10 @@ const Header = ({ searchValue, updateSearchValue }) => {
                 <div />
             </div>
             <h2>مرجعی برای رشد تفکر منطقی به وسیله معرفی و توضیح مغالطات به همراه مثال‌های مختلف و آزمون</h2>
-            <input type="search" placeholder="جست‌وجوی مغالطه..." value={searchValue} onChange={({ target }) => { updateSearchValue(target.value); }} />
+            <div className='Header__filterContainer'>
+                <FilterButton options={FILTER_OPTIONS} value={filterValue} updateValue={updateFilterValue} />
+                <input type="search" placeholder="جست‌وجوی مغالطه..." value={searchValue} onChange={({ target }) => { updateSearchValue(target.value); }} />
+            </div>
             <ModalInfo isVisible={isModalInfoVisible} toggle={toggleModalInfo} />
         </header>
     )

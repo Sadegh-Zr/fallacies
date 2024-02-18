@@ -3,12 +3,14 @@ import fallaciesJSON from '../../../content/fallacies.json';
 import { RiMenuSearchLine } from "react-icons/ri";
 import './FallaciesList.css';
 import { isBrowser } from '../../utils';
+import { FILTER_OPTIONS } from '../../constants';
 
-const FallaciesList = ({ setSelectedFallacy, searchValue }) => {
+const FallaciesList = ({ setSelectedFallacy, searchValue, filterValue }) => {
   const searchParams = new URLSearchParams(isBrowser ? window.location.search : '');
   const remindingFallaciesString = isBrowser ? localStorage.getItem('remindingFallacies') : '';
   const remindingFallacies = remindingFallaciesString ? JSON.parse(remindingFallaciesString) : [];
-
+  const { validator: filterValidator, getNotFoundText } = FILTER_OPTIONS.find(({ value }) => filterValue === value);
+  
   React.useEffect(() => {
     const fallacyId = searchParams.get('fid');
     if (fallacyId) {
@@ -23,7 +25,11 @@ const FallaciesList = ({ setSelectedFallacy, searchValue }) => {
   }
 
   const renderFallacies = () => {
-    const filteredData = fallaciesJSON.data.filter(({ title }) => (`مغالطه ${title}`).includes(searchValue));
+    const filteredData = fallaciesJSON.data.filter(({ title, id }) => {
+      const matchesName = (`مغالطه ${title}`).includes(searchValue);
+      const matchesFilter = filterValidator({ id });
+      return matchesName && matchesFilter;
+    });
     const categorizedData = filteredData.reduce((previous, next) => {
       const isCategoryCreated = previous.some(previousItem => previousItem.title === next.category);
       if (!isCategoryCreated) return [...previous, { title: next.category, items: [next] }];
@@ -39,7 +45,7 @@ const FallaciesList = ({ setSelectedFallacy, searchValue }) => {
         return (
           <div className="FallaciesList__notFound">
             <RiMenuSearchLine size="5rem" />
-            <p>مغالطه‌ای با این نام یافت نشد...</p>
+            <p>{getNotFoundText()}</p>
           </div>
         )
       };
@@ -54,7 +60,7 @@ const FallaciesList = ({ setSelectedFallacy, searchValue }) => {
             </div>
             <div className='FallaciesList__categoryList'>
               {item.items.map(buttonItem => (
-                <button className={remindingFallacies.includes(buttonItem.id) ? '-marked' : ''} aria-label={`مغالطه ${buttonItem.title}`} onClick={() => { handleClick(buttonItem) }} key={buttonItem.id}>{`مغالطه ${buttonItem.title}`}</button>
+                <button aria-label={`مغالطه ${buttonItem.title}`} onClick={() => { handleClick(buttonItem) }} key={buttonItem.id}>{remindingFallacies.includes(buttonItem.id) && <span className='FallaciesList__readMark' />} {`مغالطه ${buttonItem.title}`}</button>
               ))}
             </div>
           </div>

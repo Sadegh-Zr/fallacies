@@ -81,16 +81,24 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+.Header__filterContainer {
+    display: flex;
+    width: 100%;
+    width: calc(100% - 4rem);
+    margin-top: 2rem;
+    height: 5.5rem;
+}
 
 .Header input {
     border: none;
     font-size: 1.8rem;
-    padding: 1.5rem 2rem;
+    padding: 0 2rem;
     font-family: inherit;
     border-radius: 15px;
-    margin-top: 2rem;
-    width: calc(100% - 4rem);
     z-index: 1;
+    height: 100%;
+    flex-grow: 1;
+    border-radius: 15px 0 0 15px;
 }
 
 .Header input::placeholder {
@@ -98,5 +106,6 @@
 }
 
 .Header input:focus {
-    outline: 2px solid black;
+    border: 2px solid black;
+    outline: none;
 }
