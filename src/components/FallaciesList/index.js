@@ -5,7 +5,6 @@ import './FallaciesList.css';
 import { isBrowser } from '../../utils';
 
 const FallaciesList = ({ setSelectedFallacy, searchValue }) => {
-
   const searchParams = new URLSearchParams(isBrowser ? window.location.search : '');
   const remindingFallaciesString = isBrowser ? localStorage.getItem('remindingFallacies') : '';
   const remindingFallacies = remindingFallaciesString ? JSON.parse(remindingFallaciesString) : [];
@@ -24,7 +23,7 @@ const FallaciesList = ({ setSelectedFallacy, searchValue }) => {
   }
 
   const renderFallacies = () => {
-    const filteredData = fallaciesJSON.data.filter(({ title }) => title.includes(searchValue));
+    const filteredData = fallaciesJSON.data.filter(({ title }) => (`مغالطه ${title}`).includes(searchValue));
     const categorizedData = filteredData.reduce((previous, next) => {
       const isCategoryCreated = previous.some(previousItem => previousItem.title === next.category);
       if (!isCategoryCreated) return [...previous, { title: next.category, items: [next] }];
