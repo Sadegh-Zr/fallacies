@@ -29,4 +29,4 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => <Seo title="مغالطات" description="مرجعی برای تسلط به مغالطات به همراه مثال‌های کاربردی و آزمون" />;
+export const Head = () => <Seo title="مغالطات" description="مرجعی برای رشد تفکر منطقی به وسیله معرفی و توضیح مغالطات به همراه مثال‌های مختلف و آزمون" />;

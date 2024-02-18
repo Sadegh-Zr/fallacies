@@ -20,7 +20,7 @@
     --color-title: #fff;
     --color-text-primary: #000;
     --max-content-width: 500px;
-    --color-error: #e74c3c;
+    --color-error: #F45050;
     --color-success: #27ae60;
 }
 
@@ -50,6 +50,10 @@ button {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     font-family: inherit !important;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* Overwrite Rodal Styles To Have Auto Height Due To Content's Height */

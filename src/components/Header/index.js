@@ -19,7 +19,7 @@ const Header = ({ searchValue, updateSearchValue }) => {
                 <h1 className='Header__title'>مغالطات</h1>
                 <div />
             </div>
-            <h2>مرجعی برای تسلط بر مغالطات به همراه مثال‌های کاربردی و آزمون</h2>
+            <h2>مرجعی برای رشد تفکر منطقی به وسیله معرفی و توضیح مغالطات به همراه مثال‌های مختلف و آزمون</h2>
             <input type="search" placeholder="جست‌وجوی مغالطه..." value={searchValue} onChange={({ target }) => { updateSearchValue(target.value); }} />
             <ModalInfo isVisible={isModalInfoVisible} toggle={toggleModalInfo} />
         </header>

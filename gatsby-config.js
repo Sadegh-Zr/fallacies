@@ -29,7 +29,7 @@ module.exports = {
       options: {
         siteUrl,
         name: `مغالطات`,
-        description: "مرجعی برای تسلط به مغالطات به همراه مثال‌های کاربردی و آزمون",
+        description: "مرجعی برای رشد تفکر منطقی به وسیله معرفی و توضیح مغالطات به همراه مثال‌های مختلف و آزمون",
         short_name: `مغالطات`,
         start_url: `/`,
         background_color: `#fbc531`,

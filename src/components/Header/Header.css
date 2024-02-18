@@ -60,7 +60,9 @@
 .Header h2 {
     font-size: 2rem;
     padding: 0 2rem;
-    text-align: justify;
+    text-align: center;
+    width: calc(100% - 1.5rem);
+    margin-top: -0.5rem;
 }
 
 .Header__navButton {

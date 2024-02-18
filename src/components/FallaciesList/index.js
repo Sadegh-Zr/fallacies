@@ -54,7 +54,7 @@ const FallaciesList = ({ setSelectedFallacy, searchValue }) => {
             </div>
             <div className='FallaciesList__categoryList'>
               {item.items.map(buttonItem => (
-                <button aria-label={`مغالطه ${buttonItem.title}`} onClick={() => { handleClick(buttonItem) }} key={buttonItem.id}>{remindingFallacies.includes(buttonItem.id) && <span className='FallaciesList__readMark' />} {`مغالطه ${buttonItem.title}`}</button>
+                <button className={remindingFallacies.includes(buttonItem.id) ? '-marked' : ''} aria-label={`مغالطه ${buttonItem.title}`} onClick={() => { handleClick(buttonItem) }} key={buttonItem.id}>{`مغالطه ${buttonItem.title}`}</button>
               ))}
             </div>
           </div>

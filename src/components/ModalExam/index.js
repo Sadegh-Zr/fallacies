@@ -35,7 +35,7 @@ const ModalExam = ({ isVisible, toggle }) => {
                 </div>
                 <p className="ModalExam__description">لطفا تعداد سؤالات را مشخص نمایید.</p>
                 <ChoiceList items={questionNumbers} value={selectedNumber} onChange={updateSelectedNumber} />
-                <p className='ModalExam__note'>دقت داشته باشید که از هر سؤال می‌توان برداشت‌های مختلفی نمود. سعی کنید متناسب‌ترین گزینه را انتخاب نمایید.</p>
+                <p className='ModalExam__note'>دقت داشته باشید که از هر سؤال می‌توان برداشت‌های مختلفی نمود. سعی کنید متناسب‌ترین گزینه را انتخاب نمایید. مغالطاتی که در تشخیص آن‌ها دچار خطا شده باشید، پس از آزمون در صفحه اول به شما نمایش داده می‌شوند.</p>
                 <Link className="ModalExam__submit" to={`/exam/${selectedNumber}`}>شروع آزمون</Link>
             </div>
         </Rodal>
