@@ -7,13 +7,15 @@ const FilterButton = ({ value, updateValue, options }) => {
     const [isOpen, updateOpenState] = React.useState(false);
 
     React.useEffect(() => {
-        const handleTouchStart = e => {
+        const handleBlur = e => {
             if (e.target === container.current || container.current.contains(e.target)) return;
             updateOpenState(false);
         }
-        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchstart', handleBlur);
+        window.addEventListener('click', handleBlur);
         return () => {
-            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchstart', handleBlur);
+            window.removeEventListener('click', handleBlur);
         }
     }, []);
 
