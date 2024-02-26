@@ -19,12 +19,17 @@ const FilterButton = ({ value, updateValue, options }) => {
         }
     }, []);
 
+    const handleTransitionEnd = ({ currentTarget }) => {
+        if (currentTarget.classList.contains('-hidden')) currentTarget.style.visibility = 'hidden';
+        else currentTarget.style.visibility = 'visible';
+    };
+
     return (
         <div ref={container} className='FilterButton'>
             <button onClick={() => { updateOpenState(!isOpen); }} className='FilterButton__toggle'>
                 <LuListFilter  />
             </button>
-            <div className={`FilterButton__list ${isOpen ? '' : '-hidden'}`}>
+            <div onTransitionEnd={handleTransitionEnd} className={`FilterButton__list ${isOpen ? '' : '-hidden'}`}>
                 {options.map(option => {
                     const handleClick = () => { 
                         updateValue(option.value); 
