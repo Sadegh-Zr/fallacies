@@ -23,7 +23,6 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
     const fallacyDetailsWrapper = React.useRef(null);
     const fallacyDetails = React.useRef(null);
     const [activeImageSrc, updateActiveImageSrc] = React.useState('');
-    const installPrompt = React.useRef();
     
     const renderFallacyImages = () => {
       const fallacyWithImage = GRAPH_FALLACIES_IMAGES.find(({ id }) => selectedFallacy?.id === id);
@@ -34,42 +33,13 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
         </div>
       );
     };
-
-    // Catch Install Event
-    React.useEffect(() => {
-      const handleBeforeInstall = (event) => {
-        if(!event.prompt) return;
-        event.preventDefault();
-        installPrompt.current = event;
-      }
-      window.addEventListener('beforeinstallprompt', handleBeforeInstall);
-      return () => {
-        window.removeEventListener('beforeinstallprompt', handleBeforeInstall, true);
-      }
-    }, []);
     
     React.useEffect(() => {
       if (!selectedFallacy) return;
         fallacyDetailsWrapper.current.style.visibility = 'visible';
         fallacyDetailsWrapper.current.classList.remove('-hidden')
       }, [selectedFallacy]);
-      
-      React.useEffect(() => {
-        const handleFallacyDetailsTransitionEnd = () => {
-          const isClosed = fallacyDetailsWrapper.current.classList.contains('-hidden');
-          if (!isClosed) return;
-          fallacyDetailsWrapper.current.style.visibility = 'hidden';
-          setSelectedFallacy(null);
-            if (localStorage.getItem('isInstallPromptShown')) return;
-            installPrompt.current?.prompt();
-            localStorage.setItem('isInstallPromptShown', true)
-          }
-        fallacyDetails.current.addEventListener('transitionend', handleFallacyDetailsTransitionEnd);
-        return () => {
-            fallacyDetails.current?.removeEventListener('transitionend', handleFallacyDetailsTransitionEnd);
-        }
-    }, []);
-    
+
     const hideFallacyDetails = () => {
       fallacyDetailsWrapper.current.classList.add('-hidden');
     }
