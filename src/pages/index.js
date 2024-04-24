@@ -12,11 +12,15 @@ const IndexPage = () => {
   const [selectedFallacy, setSelectedFallacy] = React.useState(null);
   const [isModalCopyVisible, setModalCopyVisibility] = React.useState(false);
   const [isModalExamVisible, setModalExamVisibility] = React.useState(false);
-  const [isModalInfoVisible, setModalInfoVisibility] = React.useState(false);
+  const loadCover = React.useRef(null);
   
   const toggleModalExam = () => { setModalExamVisibility(!isModalExamVisible); };
+  React.useEffect(() => {
+    loadCover.current.style.display = 'none';
+  }, [])
   return (
     <main>
+      <div ref={loadCover} className="loadCover"/>
       <Header filterValue={filterValue} updateFilterValue={updateFilterValue} searchValue={searchValue} updateSearchValue={updateSearchValue} />
       <FallaciesList filterValue={filterValue} searchValue={searchValue} setSelectedFallacy={setSelectedFallacy} />
       <div className="scrollFaderBottom"/>

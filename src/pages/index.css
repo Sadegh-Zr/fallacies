@@ -6,6 +6,16 @@ main {
     align-items: center;
 }
 
+.loadCover {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    z-index: 999;
+}
+
 /* Fallacies List scroll down fading area */
 .scrollFaderBottom {
     position: absolute;
