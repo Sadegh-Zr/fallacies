@@ -19,9 +19,9 @@ const FallaciesList = ({ setSelectedFallacy, searchValue, filterValue }) => {
   }, []);
 
   const handleClick = fallacy => {
+    setSelectedFallacy(fallacy);
     const newList = remindingFallacies.filter(fallacyId => fallacyId !== fallacy.id)
     localStorage.setItem('remindingFallacies', JSON.stringify(newList));
-    setSelectedFallacy(fallacy);
   }
 
   const renderFallacies = () => {

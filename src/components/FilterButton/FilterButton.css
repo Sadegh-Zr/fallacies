@@ -39,6 +39,7 @@
     transition: 0.15s ease-out;
     opacity: 1;
     transform: scale(1);
+    visibility: hidden;
 }
 
 .FilterButton__list.-hidden {
