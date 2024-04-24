@@ -39,7 +39,20 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
         fallacyDetailsWrapper.current.style.visibility = 'visible';
         fallacyDetailsWrapper.current.classList.remove('-hidden')
       }, [selectedFallacy]);
-
+      
+      React.useEffect(() => {
+        const handleFallacyDetailsTransitionEnd = () => {
+          const isClosed = fallacyDetailsWrapper.current.classList.contains('-hidden');
+          if (!isClosed) return;
+          fallacyDetailsWrapper.current.style.visibility = 'hidden';
+          setSelectedFallacy(null);
+        }
+        fallacyDetails.current.addEventListener('transitionend', handleFallacyDetailsTransitionEnd);
+        return () => {
+            fallacyDetails.current?.removeEventListener('transitionend', handleFallacyDetailsTransitionEnd);
+        }
+    }, []);
+    
     const hideFallacyDetails = () => {
       fallacyDetailsWrapper.current.classList.add('-hidden');
     }
