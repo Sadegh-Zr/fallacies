@@ -11,7 +11,7 @@
     font-weight: 300;
     font-style: normal;
     font-display: block;
-    src: url(/fallacies/fonts/aviny.woff2) format("woff2");
+    src: url(/fonts/aviny.woff2) format("woff2");
 }
 
 :root {

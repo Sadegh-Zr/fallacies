@@ -12,21 +12,19 @@ const IndexPage = () => {
   const [selectedFallacy, setSelectedFallacy] = React.useState(null);
   const [isModalCopyVisible, setModalCopyVisibility] = React.useState(false);
   const [isModalExamVisible, setModalExamVisibility] = React.useState(false);
-  const loadCover = React.useRef(null);
+  const buttonTestElement = React.useRef(null)
+
+  React.useEffect(() => { buttonTestElement.current.classList.add('-shown') } , []);
   
   const toggleModalExam = () => { setModalExamVisibility(!isModalExamVisible); };
-  React.useEffect(() => {
-    loadCover.current.style.display = 'none';
-  }, [])
   return (
     <main>
-      <div ref={loadCover} className="loadCover"/>
       <Header filterValue={filterValue} updateFilterValue={updateFilterValue} searchValue={searchValue} updateSearchValue={updateSearchValue} />
       <FallaciesList filterValue={filterValue} searchValue={searchValue} setSelectedFallacy={setSelectedFallacy} />
       <div className="scrollFaderBottom"/>
       <FallacyDetails selectedFallacy={selectedFallacy} setSelectedFallacy={setSelectedFallacy} onButtonCopyClick={() => { setModalCopyVisibility(true); }} />
       <ModalCopy isOpen={isModalCopyVisible} selectedFallacy={selectedFallacy} hideModal={() => { setModalCopyVisibility(false); }} />
-      <button aria-label="آزمون" onClick={toggleModalExam} className="buttonTest">
+      <button ref={buttonTestElement} aria-label="آزمون" onClick={toggleModalExam} className="buttonTest">
         <HiOutlineNewspaper size="2.5rem" color="#fff" />
       </button>
       <ModalExam isVisible={isModalExamVisible} toggle={toggleModalExam} />

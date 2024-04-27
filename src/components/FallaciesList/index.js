@@ -4,18 +4,24 @@ import { RiMenuSearchLine } from "react-icons/ri";
 import './FallaciesList.css';
 import { isBrowser } from '../../utils';
 import { FILTER_OPTIONS } from '../../constants';
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 const FallaciesList = ({ setSelectedFallacy, searchValue, filterValue }) => {
   const searchParams = new URLSearchParams(isBrowser ? window.location.search : '');
   const remindingFallaciesString = isBrowser ? localStorage.getItem('remindingFallacies') : '';
   const remindingFallacies = remindingFallaciesString ? JSON.parse(remindingFallaciesString) : [];
   const { validator: filterValidator, getNotFoundText } = FILTER_OPTIONS.find(({ value }) => filterValue === value);
+  const wrapperElement = React.useRef(null);
   
   React.useEffect(() => {
     const fallacyId = searchParams.get('fid');
     if (fallacyId) {
       setSelectedFallacy(fallaciesJSON.data.find(fallacy => fallacy.id === Number(fallacyId)));
     }
+  }, []);
+
+  React.useEffect(() => {
+    wrapperElement.current.classList.remove('-showLoading')
   }, []);
 
   const handleClick = fallacy => {
@@ -68,8 +74,11 @@ const FallaciesList = ({ setSelectedFallacy, searchValue, filterValue }) => {
       });
     };
     return (
-        <div className="FallaciesList">
+        <div ref={wrapperElement} className="FallaciesList -showLoading">
             {renderFallacies()}
+            <div className='FallaciesList__loading'>
+              <PropagateLoader loading size={10} color='#5F5F5F'/>
+            </div>
         </div>
     );
 };
