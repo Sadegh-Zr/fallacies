@@ -4,7 +4,6 @@ import { RiMenuSearchLine } from "react-icons/ri";
 import './FallaciesList.css';
 import { isBrowser } from '../../utils';
 import { FILTER_OPTIONS } from '../../constants';
-import PropagateLoader from "react-spinners/PropagateLoader";
 
 const FallaciesList = ({ setSelectedFallacy, searchValue, filterValue }) => {
   const searchParams = new URLSearchParams(isBrowser ? window.location.search : '');
@@ -21,7 +20,7 @@ const FallaciesList = ({ setSelectedFallacy, searchValue, filterValue }) => {
   }, []);
 
   React.useEffect(() => {
-    wrapperElement.current.classList.remove('-showLoading')
+    // wrapperElement.current.classList.remove('-showLoading')
   }, []);
 
   const handleClick = fallacy => {
@@ -76,8 +75,9 @@ const FallaciesList = ({ setSelectedFallacy, searchValue, filterValue }) => {
     return (
         <div ref={wrapperElement} className="FallaciesList -showLoading">
             {renderFallacies()}
-            <div className='FallaciesList__loading'>
-              <PropagateLoader loading size={10} color='#5F5F5F'/>
+            <div className='FallaciesList__loadingWrapper'>
+            <div class="FallaciesList__loading">
+              <div/><div/><div/><div/></div>
             </div>
         </div>
     );
