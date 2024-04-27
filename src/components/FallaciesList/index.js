@@ -20,7 +20,7 @@ const FallaciesList = ({ setSelectedFallacy, searchValue, filterValue }) => {
   }, []);
 
   React.useEffect(() => {
-    // wrapperElement.current.classList.remove('-showLoading')
+    wrapperElement.current.classList.remove('-showLoading')
   }, []);
 
   const handleClick = fallacy => {
