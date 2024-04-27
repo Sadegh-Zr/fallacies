@@ -64,13 +64,12 @@
 
 .FilterButton__list button {
     width: 100%;
-    background-color: transparent;
     border: none;
     font-size: 1.6rem;
     color: #c2c2c2;
     padding: 0.5rem 0;
     background-color: #fff;
-    transition: 0.2s ease-out;
+    transition: 0.2s ease-out background-color;
 }
 
 .FilterButton__list button:active {
