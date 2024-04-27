@@ -92,7 +92,7 @@
     }
   }
   
-.FallaciesList:not(.-showLoading) .FallaciesList__loading {
+.FallaciesList:not(.-showLoading) .FallaciesList__loadingWrapper {
     display: none;
 }
 
