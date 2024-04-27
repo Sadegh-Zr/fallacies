@@ -36,7 +36,7 @@ main {
 }
 
 .buttonTest.-shown {
-    animation: GoIn 0.3s ease-out forwards 0.3s;
+    animation: GoIn 0.2s ease-out forwards 0.3s;
 }
 
 @keyframes GoIn {
