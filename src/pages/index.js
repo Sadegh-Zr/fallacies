@@ -12,13 +12,17 @@ const IndexPage = () => {
   const [selectedFallacy, setSelectedFallacy] = React.useState(null);
   const [isModalCopyVisible, setModalCopyVisibility] = React.useState(false);
   const [isModalExamVisible, setModalExamVisibility] = React.useState(false);
-  const buttonTestElement = React.useRef(null)
+  const buttonTestElement = React.useRef(null);
+  const loadingElement = React.useRef(null);
 
-  React.useEffect(() => { buttonTestElement.current.classList.add('-shown') } , []);
+  React.useEffect(() => { loadingElement.current.style.display = 'none' }, [])
   
   const toggleModalExam = () => { setModalExamVisibility(!isModalExamVisible); };
   return (
     <main>
+      <div ref={loadingElement} className='loadingWrapper'>
+        <div className="loader" />
+      </div>
       <Header filterValue={filterValue} updateFilterValue={updateFilterValue} searchValue={searchValue} updateSearchValue={updateSearchValue} />
       <FallaciesList filterValue={filterValue} searchValue={searchValue} setSelectedFallacy={setSelectedFallacy} />
       <div className="scrollFaderBottom"/>

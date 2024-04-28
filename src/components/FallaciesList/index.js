@@ -19,10 +19,6 @@ const FallaciesList = ({ setSelectedFallacy, searchValue, filterValue }) => {
     }
   }, []);
 
-  React.useEffect(() => {
-    wrapperElement.current.classList.remove('-showLoading')
-  }, []);
-
   const handleClick = fallacy => {
     setSelectedFallacy(fallacy);
     const newList = remindingFallacies.filter(fallacyId => fallacyId !== fallacy.id)
@@ -73,12 +69,8 @@ const FallaciesList = ({ setSelectedFallacy, searchValue, filterValue }) => {
       });
     };
     return (
-        <div ref={wrapperElement} className="FallaciesList -showLoading">
+        <div className="FallaciesList">
             {renderFallacies()}
-            <div className='FallaciesList__loadingWrapper'>
-            <div class="FallaciesList__loading">
-              <div/><div/><div/><div/></div>
-            </div>
         </div>
     );
 };
