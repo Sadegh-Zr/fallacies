@@ -87,6 +87,7 @@
     align-items: center;
     justify-content: center;
     transition: 0.2s ease-out;
+    color: var(--color-text-primary);
 }
 
 .FallaciesList button:active {

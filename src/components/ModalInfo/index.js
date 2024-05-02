@@ -11,7 +11,7 @@ const ModalInfo = ({ isVisible, toggle }) => {
             <div className='ModalInfo__titleContainer'>
                 <div>
                     <button aria-label='بستن' className="ModalInfo__closeIconButton" onClick={toggle}>
-                        <IoCloseOutline size="3rem" />
+                        <IoCloseOutline color='var(--color-text-primary)' size="3rem" />
                     </button>
                 </div>
                 <h1>درباره اپلیکیشن</h1>

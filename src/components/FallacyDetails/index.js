@@ -63,7 +63,7 @@ const FallacyDetails = ({ selectedFallacy, setSelectedFallacy, onButtonCopyClick
               <div className="FallacyDetails__titleContainer">
                 <div>
                   <button aria-label='بستن' onClick={hideFallacyDetails} className="FallacyDetails__buttonClose">
-                      <IoCloseOutline size="3rem" />
+                      <IoCloseOutline size="3rem" color='var(--color-text-primary)' />
                   </button>
                 </div>
                 <h2 className="FallacyDetails__title">{`مغالطه ${selectedFallacy?.title}`}</h2>

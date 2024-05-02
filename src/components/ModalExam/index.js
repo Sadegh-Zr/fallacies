@@ -27,7 +27,7 @@ const ModalExam = ({ isVisible, toggle }) => {
                 <div className='ModalExam__titleContainer'>
                     <div>
                         <button aria-label='بستن' onClick={toggle} className="ModalExam__buttonClose">
-                            <IoCloseOutline size="3rem" />
+                            <IoCloseOutline size="3rem" color='var(--color-text-primary)' />
                         </button>
                     </div>
                     <h1 className='ModalExam__title'>آزمون</h1>
